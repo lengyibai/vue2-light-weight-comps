@@ -52,10 +52,6 @@
         <div class="scroll-item flex">
           <Video />
         </div>
-        <!-- 导出表格 -->
-        <div class="scroll-item flex">
-          <LybJsonExcel />
-        </div>
       </LybFullScroll>
     </div>
   </div>

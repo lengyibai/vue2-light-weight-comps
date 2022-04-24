@@ -10,7 +10,7 @@ Vue.use(lybUI);
 import directives from "@/utils/directives.js";
 Vue.use(directives);
 //####······公共样式
-import "@/styles/index.css";
+import "@/assets/css/default.css";
 
 new Vue({
   render: (h) => h(App),
