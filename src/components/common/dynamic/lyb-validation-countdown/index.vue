@@ -1,7 +1,4 @@
 <template>
-  <!-- <button class="index" :class="{ disabled: disabled }" :disabled="disabled" @click="start">
-
-  </button>-->
   <div>
     <slot
       :text="text"
@@ -9,12 +6,6 @@
       :clearTimer="clearTimer"
       :disabled="disabled"
     ></slot>
-    <!--
-      示例
-      <template v-slot="{ text, start, disabled }">
-        <button @click="start" :disabled="disabled">{{ text }}</button>
-      </template>
-    -->
   </div>
 </template>
 <script>
@@ -31,10 +22,10 @@ export default {
     start() {
       this.disabled = true;
       this.countDown = 10;
-      this.text = `${this.countDown}秒后重试`;
+      this.text = `${this.countDown}秒后重新获取`;
       this.timer = setInterval(() => {
         this.countDown--;
-        this.text = `${this.countDown}秒后重试`;
+        this.text = `${this.countDown}秒后重新获取`;
         if (this.countDown === 0) {
           clearInterval(this.timer);
           this.text = "重新获取验证码";

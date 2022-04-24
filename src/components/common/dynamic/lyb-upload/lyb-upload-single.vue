@@ -432,7 +432,6 @@ export default {
             file.isUploading = false; //非上传中
           })
           .catch((err) => {
-            console.error(err);
             this.$emit("finish", "fail");
             resolve(err.message == undefined ? "取消上传" : "上传失败");
             file.cancel = null; //删除取消请求函数
@@ -463,8 +462,6 @@ export default {
 <style lang="less" scoped>
 .lyb-upload-single,
 .index {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   .imgBox {

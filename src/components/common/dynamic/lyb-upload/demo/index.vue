@@ -1,7 +1,7 @@
 <template>
   <div class="demo demoFull flex">
     <!-- 单文件上传 -->
-    <div class="box">
+    <div class="box flex">
       <LybUploadSingle
         :fileUrl.sync="single.fileUrl"
         @finish="LybUploadSingleFinish"
@@ -14,7 +14,7 @@
       <span>{{ this.single.fileUrl }}</span>
     </div>
     <!-- 多文件上传 -->
-    <div class="box">
+    <div class="box flex">
       <LybUploadMultiple
         :files.sync="multiple.files"
         @finish="LybUploadMultipleFinish"
@@ -82,7 +82,6 @@ export default {
   flex-direction: column;
   color: #fff;
   .box {
-    display: flex;
     flex-direction: column;
     height: fit-content;
     margin: 25px 0;

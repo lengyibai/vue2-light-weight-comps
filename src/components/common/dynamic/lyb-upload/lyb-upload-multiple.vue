@@ -479,8 +479,6 @@ export default {
 <style lang="less" scoped>
 .lyb-upload-multiple,
 .index {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   .imgBox {

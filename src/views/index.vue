@@ -8,57 +8,61 @@
     />
     <div class="FullScroll">
       <LybFullScroll direction="x" @end-scroll="endScroll" v-model="i">
-        <div class="scroll-item">
+        <div class="scroll-item" :class="{ opacity: i === 0 }">
           <!-- 拖拽排序 -->
-          <DragSort />
+          <DragSort v-if="i === 0" />
         </div>
         <!-- Echarts图表 -->
-        <div class="scroll-item">
-          <Echarts />
+        <div class="scroll-item" :class="{ opacity: i === 1 }">
+          <Echarts v-if="i === 1" />
         </div>
         <!-- 卡片翻转 -->
-        <div class="scroll-item flex">
-          <FlipBox />
+        <div class="scroll-item" :class="{ opacity: i === 2 }">
+          <FlipBox v-if="i === 2" />
         </div>
         <!-- 图标 -->
-        <div class="scroll-item flex">
-          <Icon />
+        <div class="scroll-item" :class="{ opacity: i === 3 }">
+          <Icon v-if="i === 3" />
         </div>
         <!-- loading -->
-        <div class="scroll-item flex">
-          <Loading />
+        <div class="scroll-item" :class="{ opacity: i === 4 }">
+          <Loading v-if="i === 4" />
         </div>
         <!-- 生成二维码 -->
-        <div class="scroll-item flex">
-          <QrCode />
+        <div class="scroll-item" :class="{ opacity: i === 5 }">
+          <QrCode v-if="i === 5" />
         </div>
         <!-- 滑动选择器 -->
-        <div class="scroll-item flex">
-          <Range />
+        <div class="scroll-item" :class="{ opacity: i === 6 }">
+          <Range v-if="i === 6" />
         </div>
         <!-- 移动端滚动插件 -->
-        <div class="scroll-item flex">
-          <Scroll />
+        <div class="scroll-item" :class="{ opacity: i === 7 }">
+          <Scroll v-if="i === 7" />
         </div>
         <!-- swiper轮播图 -->
-        <div class="scroll-item flex">
-          <Swipe />
+        <div class="scroll-item" :class="{ opacity: i === 8 }">
+          <Swipe v-if="i === 8" />
         </div>
         <!-- swiper轮播图 -->
-        <div class="scroll-item flex">
-          <Table />
+        <div class="scroll-item" :class="{ opacity: i === 9 }">
+          <Table v-if="i === 9" />
         </div>
         <!-- 视频播放器 -->
-        <div class="scroll-item flex">
-          <Video />
+        <div class="scroll-item" :class="{ opacity: i === 10 }">
+          <Video v-if="i === 10" />
         </div>
         <!-- 省市区 -->
-        <div class="scroll-item flex">
-          <SelectAddress />
+        <div class="scroll-item" :class="{ opacity: i === 11 }">
+          <SelectAddress v-if="i === 11" />
         </div>
         <!-- 文件上传 -->
-        <div class="scroll-item flex">
-          <UploadSingle />
+        <div class="scroll-item" :class="{ opacity: i === 12 }">
+          <UploadSingle v-if="i === 12" />
+        </div>
+        <!-- 获取验证码按钮 -->
+        <div class="scroll-item" :class="{ opacity: i === 13 }">
+          <ValidationCountdown v-if="i === 13" />
         </div>
       </LybFullScroll>
     </div>
@@ -92,6 +96,8 @@ import Video from "../components/common/static/lyb-video/demo";
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo";
 /* 文件上传 */
 import UploadSingle from "../components/common/dynamic/lyb-upload/demo";
+/* 获取验证码按钮 */
+import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo";
 export default {
   name: "index",
   components: {
@@ -109,6 +115,7 @@ export default {
     Video,
     SelectAddress,
     UploadSingle,
+    ValidationCountdown,
   },
   data() {
     return {
@@ -126,6 +133,7 @@ export default {
         { name: "视频播放器" },
         { name: "省市区" },
         { name: "文件上传" },
+        { name: "获取验证码按钮" },
       ],
       i: 0,
     };
@@ -160,10 +168,18 @@ export default {
     flex: 1;
     height: 100%;
     overflow: hidden;
+    .scroll-item {
+      opacity: 0;
+      transition: all 0.5s;
+    }
   }
 }
 
 .bg-white {
   background-color: #fff;
+}
+
+.opacity {
+  opacity: 1 !important;
 }
 </style>
