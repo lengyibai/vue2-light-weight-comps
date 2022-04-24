@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <index />
   </div>
 </template>
 
 <script>
+import index from "./views";
 export default {
   name: "App",
+  components: { index },
 };
 </script>
 <style lang="less">
