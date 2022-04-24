@@ -9,7 +9,7 @@
         <slot></slot>
       </div>
     </div>
-    <back-top :show="backTopShow" />
+    <BackTop :show="backTopShow" />
   </div>
 </template>
 <script>
@@ -73,11 +73,13 @@ export default {
 .lyb-scroll {
   position: relative;
   width: 100%;
+  height: 100%;
   flex-shrink: 0;
+  overflow: hidden;
   .better-wrapper {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
     .better-content {
       min-height: 100%;
     }
