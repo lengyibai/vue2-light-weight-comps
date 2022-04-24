@@ -3,16 +3,7 @@
     <LybVideo />
   </div>
 </template>
-<script>
-export default {
-  name: "demo",
-  data() {
-    return {};
-  },
-  components: {},
-  methods: {},
-};
-</script>
+<script></script>
 <style scoped lang="less">
 .demo {
   position: relative;

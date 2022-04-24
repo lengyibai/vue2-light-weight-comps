@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="demo demoFull">
     <div class="love flex">
       <LybIcon
         :imgUrl="require('./img/love.svg')"
@@ -30,16 +30,10 @@ export default {
 };
 </script>
 <style scoped lang="less">
-.flex {
-  display: flex;
-  align-items: center;
-}
 .demo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   color: #fff;
   font-size: 250px;
   overflow: auto;

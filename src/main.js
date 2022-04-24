@@ -11,6 +11,7 @@ import directives from "@/utils/directives.js";
 Vue.use(directives);
 //####······公共样式
 import "@/assets/css/default.css";
+import "@/assets/css/style.css";
 
 new Vue({
   render: (h) => h(App),

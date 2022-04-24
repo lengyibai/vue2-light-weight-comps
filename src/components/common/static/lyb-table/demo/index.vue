@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="demo demoFull flex">
     <!-- :head 表头 :sort 将需要排序的属性的索引号写入数组 -->
     <LybTable
       :data="tableData"
@@ -84,11 +84,6 @@ export default {
 </script>
 <style scoped lang="less">
 .demo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #fff;
 }
 </style>

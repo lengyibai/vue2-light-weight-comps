@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="demo demoFull flex">
     <LybRange
       v-model="value"
       :showIcon="true"
@@ -20,13 +20,8 @@ export default {
 </script>
 <style scoped lang="less">
 .demo {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   color: #fff;
   font-size: 100px;
-  height: 100%;
 }
 </style>

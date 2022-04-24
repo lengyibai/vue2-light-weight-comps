@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="demo demoFull flex">
     <LybDragSort :data="imgs" @sort-data="sortData" id="name">
       <template v-slot="{ item }">
         <div class="box" draggable="true">
@@ -59,12 +59,7 @@ export default {
 </script>
 <style scoped lang="less">
 .demo {
-  width: 100%;
-  height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #000;
   color: #fff;
   font-size: 35px;

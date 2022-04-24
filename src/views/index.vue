@@ -145,9 +145,6 @@ export default {
     flex: 1;
     height: 100%;
     overflow: hidden;
-    .scroll-item {
-      padding: 25px;
-    }
   }
 }
 
