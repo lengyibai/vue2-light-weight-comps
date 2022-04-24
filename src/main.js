@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App";
 Vue.config.productionTip = false;
 
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(ElementUI);
 //#####··········个人··········#####//
 //####········个人组件
 import lybUI from "@/components/common/index.js";

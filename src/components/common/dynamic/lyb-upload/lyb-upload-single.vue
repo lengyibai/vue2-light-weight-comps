@@ -103,10 +103,10 @@ export default {
     // 文件地址
     fileUrl: {
       type: String,
-      // default: 'http://lengyibai.gitee.io/img-bed/img/lyb.png'
       default: "",
+      // default: "",
     },
-    // 文件名
+    // 文件名，用于请求后端数据，将图片赋值给组件进行修改时显示
     fileName: {
       type: String,
       default: "未命名文件",
@@ -153,7 +153,7 @@ export default {
       preview_img: "", //预览的图片
       fileList: [], //文件列表
       fake_files: [], //虚拟文件列表
-      currrentIndex: null,
+      currrentIndex: null, //记录悬浮的索引号
       select_show: true, //显示选择文件图标
       is_show_big_img: false, //显示图片预览
     };
@@ -239,6 +239,7 @@ export default {
     delImg(index) {
       if (this.fileList[index].isFinish) {
         this.fake_files.splice(index, 1);
+        this.$emit("update:fileUrl", "");
         this.$emit("finish", { name: this.fileName, src: "", id: this.id });
       }
       // 用于单选文件，隐藏文件选择图标
@@ -330,7 +331,7 @@ export default {
         //将文件主要信息单独存储
         this.fileList.push({
           id: this.fileList.length + new Date().getTime(), //文件 id
-          name: item.name, //文件名称
+          name: this.fileName, //文件名称
           size: $fmtByte(item.size), //文件大小
           url: type == "img" ? window.URL.createObjectURL(item) : icon[type], //用于图标显示
           time: new Date().getTime(), //上传时间
@@ -410,17 +411,20 @@ export default {
             },
           )
           .then((res) => {
-            if (res.data.code !== 0) {
-              throw new Error("上传失败");
-            }
-
-            this.fake_files.push({ name: file.name, url: res.data.data.src }); // 将后端返回的文件链接追加进数组
-
+            this.$emit(
+              "update:fileUrl",
+              "来这里改成后端文件链接地址字段，如res.data.data.src",
+            );
+            this.fake_files.push({
+              name: this.fileName,
+              url: "来这里改成后端文件链接地址字段，如res.data.data.src",
+            }); // 将后端返回的文件链接追加进数组
             this.$emit("finish", {
               name: this.fileName,
-              src: res.data.data.src,
+              src: "来这里改成后端文件链接地址字段，如res.data.data.src",
               id: this.id,
             });
+
             resolve(res);
             file.cancel = null; //删除取消请求函数
             file.isFinish = true; //上传成功
@@ -428,6 +432,7 @@ export default {
             file.isUploading = false; //非上传中
           })
           .catch((err) => {
+            console.error(err);
             this.$emit("finish", "fail");
             resolve(err.message == undefined ? "取消上传" : "上传失败");
             file.cancel = null; //删除取消请求函数
@@ -446,7 +451,11 @@ export default {
       this.fileList = [];
       this.fake_files = [];
       this.select_show = true;
-      this.$emit("finish", { name: this.fileName, src: "", id: this.id });
+      this.$emit("finish", {
+        name: this.fileName,
+        src: "",
+        id: this.id,
+      });
     },
   },
 };

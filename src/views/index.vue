@@ -52,6 +52,14 @@
         <div class="scroll-item flex">
           <Video />
         </div>
+        <!-- 省市区 -->
+        <div class="scroll-item flex">
+          <SelectAddress />
+        </div>
+        <!-- 文件上传 -->
+        <div class="scroll-item flex">
+          <UploadSingle />
+        </div>
       </LybFullScroll>
     </div>
   </div>
@@ -80,6 +88,10 @@ import Swipe from "../components/common/static/lyb-swipe/demo";
 import Table from "../components/common/static/lyb-table/demo";
 /* 视频播放器 */
 import Video from "../components/common/static/lyb-video/demo";
+/* 省市区 */
+import SelectAddress from "../components/common/dynamic/lyb-select-address/demo";
+/* 文件上传 */
+import UploadSingle from "../components/common/dynamic/lyb-upload/demo";
 export default {
   name: "index",
   components: {
@@ -95,6 +107,8 @@ export default {
     Swipe,
     Table,
     Video,
+    SelectAddress,
+    UploadSingle,
   },
   data() {
     return {
@@ -110,7 +124,8 @@ export default {
         { name: "swiper轮播图" },
         { name: "表格" },
         { name: "视频播放器" },
-        { name: "导出表格" },
+        { name: "省市区" },
+        { name: "文件上传" },
       ],
       i: 0,
     };

@@ -37,19 +37,19 @@
 > 如果表单支持预览的情况下，需要设置`v-if`解决图片加载问题，不需要预览时可去掉
 
 ```vue
-<LybUploadSingle v-if="files.url || isEdit" :fileName="file.name" :fileUrl.sync="file.url" />
+<LybUploadSingle v-if="files.url || isShow" :fileName="file.name" :fileUrl="file.url" />
 <script>
 export default {
   data(){
     return {
       file: {},
-      isEdit: false, //解决在既能预览，又能只需要上传，没有图片，导致无法显示组件
+      isShow: false, //解决在既能预览，又能只需要上传，没有图片，导致无法显示组件
     }
   },
   //模拟异步请求
   mounted() {
     setTimeout(() => {
-      this.isEdit = true; //图片请求完毕后显示组件
+      this.isShow = true; //图片请求完毕后显示组件
       this.file = {
         url: 'http://lengyibai.gitee.io/img-bed/img/lyb.png',
         name: '冷弋白'
@@ -67,7 +67,7 @@ export default {
 ```vue
 <LybUploadMultiple
   id="a"
-  v-if="files.length || isEdit"
+  v-if="files.length || isShow"
   :files="files"
 />
 <script>
@@ -75,13 +75,13 @@ export default {
   data() {
     return {
       files: [],
-      isEdit: false
+      isShow: false
     }
   },
   created() {
   	detail(id).then(res => {
       this.files = JSON.parse(res.data.data.files);
-      this.isEdit = true;
+      this.isShow = true;
     });
 	},
   methods:{

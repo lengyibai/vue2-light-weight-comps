@@ -13,16 +13,4 @@ module.exports = defineConfig({
     },
   },
   publicPath: "./",
-  /*
-  css: {
-    loaderOptions: {
-      less: {
-        // Vant主题定制方法
-        modifyVars: {
-          hack: `true; @import "${myTheme}";`
-        }
-      }
-    }
-  },
-   */
 });

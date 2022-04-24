@@ -10,11 +10,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { Cascader } from "element-ui";
-Vue.use(Cascader);
 import address from "./address.js";
 export default {
+  props: {
+    /* 返回省市区代码还是中文，默认为代码 */
+    code: {
+      type: Boolean,
+      default: true,
+    },
+  },
   name: "LybSelectAddress",
   data() {
     return {
@@ -25,6 +29,9 @@ export default {
       },
     };
   },
+  created() {
+    this.props.value = this.code ? "value" : "text";
+  },
   computed: {
     address() {
       return address;
@@ -32,8 +39,7 @@ export default {
   },
   methods: {
     handleChange(val) {
-      this.$emit("code", val);
-      this.$emit("chinese", val);
+      this.$emit("select-change", val);
     },
   },
 };

@@ -441,12 +441,9 @@ export default {
             },
           )
           .then((res) => {
-            this.$emit("finish", res);
-            if (res.data.code !== 0) {
-              throw new Error("上传失败");
-            }
-
-            this.virtual_files.push(res.data.data); // 将后端返回的文件链接追加进数组
+            this.virtual_files.push(
+              "来这里改成后端文件链接地址字段，如res.data.data.src",
+            ); // 将后端返回的文件链接追加进数组
             this.$emit("update:files", this.virtual_files);
             this.$emit("finish", res);
             resolve(res);
