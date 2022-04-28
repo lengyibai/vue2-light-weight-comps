@@ -8,49 +8,50 @@
     />
     <div class="FullScroll">
       <LybFullScroll direction="x" @end-scroll="endScroll" v-model="i">
-        <div class="scroll-item" :class="{ opacity: i === 0 }">
-          <!-- 拖拽排序 -->
-          <DragSort v-if="i === 0" />
-        </div>
         <!-- Echarts图表 -->
-        <div class="scroll-item" :class="{ opacity: i === 1 }">
-          <Echarts v-if="i === 1" />
+        <div class="scroll-item" :class="{ opacity: i === 0 }">
+          <Echarts v-if="i === 0" />
         </div>
         <!-- 卡片翻转 -->
-        <div class="scroll-item" :class="{ opacity: i === 2 }">
-          <FlipBox v-if="i === 2" />
+        <div class="scroll-item" :class="{ opacity: i === 1 }">
+          <FlipBox v-if="i === 1" />
         </div>
         <!-- 图标 -->
-        <div class="scroll-item" :class="{ opacity: i === 3 }">
-          <Icon v-if="i === 3" />
+        <div class="scroll-item" :class="{ opacity: i === 2 }">
+          <Icon v-if="i === 2" />
         </div>
         <!-- loading -->
-        <div class="scroll-item" :class="{ opacity: i === 4 }">
-          <Loading v-if="i === 4" />
+        <div class="scroll-item" :class="{ opacity: i === 3 }">
+          <Loading v-if="i === 3" />
         </div>
         <!-- 生成二维码 -->
-        <div class="scroll-item" :class="{ opacity: i === 5 }">
-          <QrCode v-if="i === 5" />
+        <div class="scroll-item" :class="{ opacity: i === 4 }">
+          <QrCode v-if="i === 4" />
         </div>
         <!-- 滑动选择器 -->
-        <div class="scroll-item" :class="{ opacity: i === 6 }">
-          <Range v-if="i === 6" />
+        <div class="scroll-item" :class="{ opacity: i === 5 }">
+          <Range v-if="i === 5" />
         </div>
         <!-- 移动端滚动插件 -->
+        <div class="scroll-item" :class="{ opacity: i === 6 }">
+          <Scroll v-if="i === 6" />
+        </div>
+        <!-- swiper轮播图 -->
         <div class="scroll-item" :class="{ opacity: i === 7 }">
-          <Scroll v-if="i === 7" />
+          <Swipe v-if="i === 7" />
         </div>
         <!-- swiper轮播图 -->
         <div class="scroll-item" :class="{ opacity: i === 8 }">
-          <Swipe v-if="i === 8" />
-        </div>
-        <!-- swiper轮播图 -->
-        <div class="scroll-item" :class="{ opacity: i === 9 }">
-          <Table v-if="i === 9" />
+          <Table v-if="i === 8" />
         </div>
         <!-- 视频播放器 -->
+        <div class="scroll-item" :class="{ opacity: i === 9 }">
+          <Video v-if="i === 90" />
+        </div>
+
         <div class="scroll-item" :class="{ opacity: i === 10 }">
-          <Video v-if="i === 10" />
+          <!-- 拖拽排序 -->
+          <DragSort v-if="i === 10" />
         </div>
         <!-- 省市区 -->
         <div class="scroll-item" :class="{ opacity: i === 11 }">
@@ -94,7 +95,6 @@ export default {
   name: "index",
   components: {
     Elevator,
-    DragSort,
     Echarts,
     FlipBox,
     Icon,
@@ -105,6 +105,7 @@ export default {
     Swipe,
     Table,
     Video,
+    DragSort,
     SelectAddress,
     UploadSingle,
     ValidationCountdown,
@@ -112,7 +113,6 @@ export default {
   data() {
     return {
       components: [
-        { name: "拖拽排序", type: "dynamic" },
         { name: "Echarts图表", type: "static" },
         { name: "卡片翻转", type: "static" },
         { name: "图标", type: "static" },
@@ -123,6 +123,8 @@ export default {
         { name: "swiper轮播图", type: "static" },
         { name: "表格", type: "static" },
         { name: "视频播放器", type: "static" },
+
+        { name: "拖拽排序", type: "dynamic" },
         { name: "省市区", type: "dynamic" },
         { name: "文件上传", type: "dynamic" },
         { name: "获取验证码按钮", type: "dynamic" },
