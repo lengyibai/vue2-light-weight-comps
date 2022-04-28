@@ -2,7 +2,7 @@
   <div class="lyb-rich-text" :class="{ disabled: disabled }">
     <quill-editor
       :disabled="disabled"
-      v-model="contentText"
+      :value="value"
       ref="myQuillEditor"
       :options="editorOption"
       @focus="onEditorFocus($event)"
@@ -24,7 +24,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    content: {
+    value: {
       type: String,
       default: "",
     },
@@ -73,7 +73,6 @@ export default {
     onEditorReady() {},
     onEditorFocus() {}, // 获得焦点事件
     onEditorChange(e) {
-      console.log(e.html);
       this.$emit("input", e.html);
     }, // 内容改变事件
   },
@@ -81,6 +80,8 @@ export default {
 </script>
 <style lang="less">
 .quill-editor {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   .ql-container {
     height: 100%;

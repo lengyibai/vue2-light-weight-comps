@@ -65,6 +65,10 @@
         <div class="scroll-item" :class="{ opacity: i === 13 }">
           <ValidationCountdown v-if="i === 13" />
         </div>
+        <!-- 富文本 -->
+        <div class="scroll-item" :class="{ opacity: i === 14 }">
+          <RichText v-if="i === 14" />
+        </div>
       </LybFullScroll>
     </div>
     <div class="tips">
@@ -91,6 +95,7 @@ import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽�
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
 import UploadSingle from "../components/common/dynamic/lyb-upload/demo"; //文件上传
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
+import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
 export default {
   name: "index",
   components: {
@@ -109,6 +114,7 @@ export default {
     SelectAddress,
     UploadSingle,
     ValidationCountdown,
+    RichText,
   },
   data() {
     return {
@@ -128,6 +134,7 @@ export default {
         { name: "省市区", type: "dynamic" },
         { name: "文件上传", type: "dynamic" },
         { name: "获取验证码按钮", type: "dynamic" },
+        { name: "富文本", type: "dynamic" },
       ],
       i: 0,
     };
