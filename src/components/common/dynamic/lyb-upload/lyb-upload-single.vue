@@ -484,8 +484,8 @@ export default {
       display: flex;
       flex-direction: column;
       position: absolute;
-      inset: 0;
-      top: 0%;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
@@ -555,13 +555,7 @@ export default {
 
   .maskImg {
     position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     background: no-repeat center center;
     background-color: rgba(0, 0, 0, 0.75);
     background-size: contain;
