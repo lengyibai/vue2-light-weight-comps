@@ -46,7 +46,7 @@
         </div>
         <!-- 视频播放器 -->
         <div class="scroll-item" :class="{ opacity: i === 9 }">
-          <Video v-if="i === 90" />
+          <Video v-if="i === 9" />
         </div>
 
         <div class="scroll-item" :class="{ opacity: i === 10 }">
