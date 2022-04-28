@@ -2,7 +2,12 @@
   <div class="Elevator">
     <div
       class="page"
-      :class="{ active: currentIndex === index }"
+      :class="{
+        activeStatic: currentIndex === index && item.type === 'static',
+        activeDynamic: currentIndex === index && item.type === 'dynamic',
+        static: item.type === 'static',
+        dynamic: item.type === 'dynamic',
+      }"
       @click="fn(index)"
       v-for="(item, index) in components"
       :key="index"
@@ -66,10 +71,26 @@ export default {
     transition: all 0.5s 0.1s;
     user-select: none;
   }
-  .active {
+}
+
+.activeStatic {
+  background-color: #27ae60;
+}
+.activeDynamic {
+  background-color: #2980b9;
+}
+.static {
+  border-color: #27ae60 !important;
+  &:hover {
     transition: all 0s;
-    color: #000;
-    background-color: #fff;
+    background-color: #27ae60;
+  }
+}
+.dynamic {
+  border-color: #2980b9 !important;
+  &:hover {
+    transition: all 0s;
+    background-color: #2980b9;
   }
 }
 </style>

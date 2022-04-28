@@ -66,38 +66,30 @@
         </div>
       </LybFullScroll>
     </div>
+    <div class="tips">
+      <span>绿色为简单的小组件，功能性不强</span>
+      <span>蓝色为相对复杂一点的组件，功能性较强</span>
+      <span>黄色为自定义指令</span>
+    </div>
   </div>
 </template>
 <script>
 import Elevator from "./childComp/Elevator.vue";
-/* 拖拽排序 */
-import DragSort from "@/components/common/static/lyb-drag-sort/demo";
-/* Echarts图表 */
-import Echarts from "@/components/common/static/lyb-echarts/demo";
-/* 卡片翻转 */
-import FlipBox from "@/components/common/static/lyb-flip-box/demo";
-/* 图标 */
-import Icon from "../components/common/static/lyb-icon/demo";
-/* loading */
-import Loading from "../components/common/static/lyb-loading/demo";
-/* 生成二维码  */
-import QrCode from "../components/common/static/lyb-qr-code/demo";
-/* 滑动选择器 */
-import Range from "../components/common/static/lyb-range/demo";
-/* 移动端滚动插件 */
-import Scroll from "../components/common/static/lyb-scroll/demo";
-/* swiper轮播图 */
-import Swipe from "../components/common/static/lyb-swipe/demo";
-/* 表格 */
-import Table from "../components/common/static/lyb-table/demo";
-/* 视频播放器 */
-import Video from "../components/common/static/lyb-video/demo";
-/* 省市区 */
-import SelectAddress from "../components/common/dynamic/lyb-select-address/demo";
-/* 文件上传 */
-import UploadSingle from "../components/common/dynamic/lyb-upload/demo";
-/* 获取验证码按钮 */
-import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo";
+import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
+import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
+import Icon from "../components/common/static/lyb-icon/demo"; //图标
+import Loading from "../components/common/static/lyb-loading/demo"; //loading
+import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
+import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
+import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚动插件
+import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
+import Table from "../components/common/static/lyb-table/demo"; //表格
+import Video from "../components/common/static/lyb-video/demo"; //视频播放器
+
+import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
+import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
+import UploadSingle from "../components/common/dynamic/lyb-upload/demo"; //文件上传
+import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 export default {
   name: "index",
   components: {
@@ -120,20 +112,20 @@ export default {
   data() {
     return {
       components: [
-        { name: "拖拽排序" },
-        { name: "Echarts图表" },
-        { name: "卡片翻转" },
-        { name: "图标" },
-        { name: "loading" },
-        { name: "生成二维码" },
-        { name: "滑动选择器" },
-        { name: "移动端滚动插件" },
-        { name: "swiper轮播图" },
-        { name: "表格" },
-        { name: "视频播放器" },
-        { name: "省市区" },
-        { name: "文件上传" },
-        { name: "获取验证码按钮" },
+        { name: "Echarts图表", type: "static" },
+        { name: "卡片翻转", type: "static" },
+        { name: "图标", type: "static" },
+        { name: "loading", type: "static" },
+        { name: "生成二维码", type: "static" },
+        { name: "滑动选择器", type: "static" },
+        { name: "移动端滚动插件", type: "static" },
+        { name: "swiper轮播图", type: "static" },
+        { name: "表格", type: "static" },
+        { name: "视频播放器", type: "static" },
+        { name: "拖拽排序", type: "dynamic" },
+        { name: "省市区", type: "dynamic" },
+        { name: "文件上传", type: "dynamic" },
+        { name: "获取验证码按钮", type: "dynamic" },
       ],
       i: 0,
     };
@@ -171,6 +163,26 @@ export default {
     .scroll-item {
       opacity: 0;
       transition: all 0.5s;
+    }
+  }
+  .tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    span {
+      &:nth-of-type(1) {
+        color: #2ecc71;
+      }
+      &:nth-of-type(2) {
+        color: #3498db;
+      }
+      &:nth-of-type(3) {
+        color: #f1c40f;
+      }
     }
   }
 }

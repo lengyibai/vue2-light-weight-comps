@@ -14,6 +14,7 @@ export function $fmtByte(bytes) {
   return [parseFloat(size), sizes[i], `${size} ${sizes[i]}`];
 }
 
+/* 获取文件类型 */
 export function $urlFileType(url, type) {
   const obj = {
     image: ["jpeg", "jpg", "png", "webp", "bmp", "gif", "svg"],
