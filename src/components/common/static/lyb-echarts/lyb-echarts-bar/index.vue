@@ -25,30 +25,25 @@ export default {
     },
     title: {
       type: String,
-      default: "某玩家游戏熟练度",
+      default: "",
     },
     data: {
       type: Array,
       default() {
-        return [
-          { name: "英雄联盟", time_data: [10, 30, 50, 70, 90] },
-          { name: "刺激战场", time_data: [20, 40, 60, 80, 100] },
-          { name: "我的世界", time_data: [10, 40, 70, 100, 130] },
-          { name: "王者荣耀", time_data: [20, 40, 60, 80, 100, 120] },
-        ];
+        return [];
       },
     },
     groups: {
       type: Array,
       default() {
-        return ["英雄联盟", "刺激战场", "我的世界", "王者荣耀"];
+        return [];
       },
     },
     // 底部单位
     bottomCompany: {
       type: Array,
       default() {
-        return ["2017", "2018", "2019", "2020", "2021"];
+        return [];
       },
     },
   },

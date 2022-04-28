@@ -112,6 +112,7 @@ export default {
   data() {
     return {
       components: [
+        { name: "拖拽排序", type: "dynamic" },
         { name: "Echarts图表", type: "static" },
         { name: "卡片翻转", type: "static" },
         { name: "图标", type: "static" },
@@ -122,7 +123,6 @@ export default {
         { name: "swiper轮播图", type: "static" },
         { name: "表格", type: "static" },
         { name: "视频播放器", type: "static" },
-        { name: "拖拽排序", type: "dynamic" },
         { name: "省市区", type: "dynamic" },
         { name: "文件上传", type: "dynamic" },
         { name: "获取验证码按钮", type: "dynamic" },

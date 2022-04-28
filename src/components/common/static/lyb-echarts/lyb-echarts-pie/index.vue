@@ -25,21 +25,16 @@ export default {
     },
     title: {
       type: String,
-      default: "某玩家游戏熟练度",
+      default: "",
     },
     desc: {
       type: String,
-      default: "不知名玩家",
+      default: "",
     },
     data: {
       type: Array,
       default() {
-        return [
-          { name: "英雄联盟", value: 10 + 30 + 50 + 70 + 90 },
-          { name: "刺激战场", value: 20 + 40 + 60 + 80 + 100 },
-          { name: "我的世界", value: 10 + 40 + 70 + 100 + 130 },
-          { name: "王者荣耀", value: 20 + 40 + 60 + 80 + 100 + 120 },
-        ];
+        return [];
       },
     },
   },
