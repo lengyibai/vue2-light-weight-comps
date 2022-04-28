@@ -1,5 +1,6 @@
 <template>
   <div class="demo demoFull flex">
+    <h1>Element UI文件上传接口，只能上传png格式</h1>
     <!-- 单文件上传 -->
     <div class="box flex">
       <LybUploadSingle
@@ -63,7 +64,7 @@ export default {
         },
       ]);
       this.multiple.isShow = true;
-    }, 3000);
+    }, 1000);
   },
   methods: {
     LybUploadSingleFinish(v) {

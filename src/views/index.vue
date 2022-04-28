@@ -172,17 +172,19 @@ export default {
     .scroll-item {
       opacity: 0;
       transition: all 0.5s;
+      padding: 25px;
     }
   }
   .tips {
     display: flex;
     flex-direction: column;
-    align-items: center;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 200px;
+    height: 100%;
+    justify-content: space-between;
     color: #fff;
     span {
+      writing-mode: vertical-lr;
       &:nth-of-type(1) {
         color: #2ecc71;
       }
