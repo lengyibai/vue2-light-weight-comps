@@ -1,26 +1,16 @@
 <template>
   <div
-    class="index"
+    class="LybIcon"
+    @mouseenter="toggle = true"
+    @mouseleave="toggle = false"
     :style="{
       width: `${size}`,
       height: `${size}`,
       margin: `${top} ${right} ${bottom} ${left}`,
+      backgroundImage: `url(${!toggle ? imgUrl : imgUrlHover || imgUrl})`,
     }"
     :title="title"
-  >
-    <div
-      class="index-hover"
-      :style="{
-        backgroundImage: `url(${imgUrlHover})`,
-      }"
-    ></div>
-    <div
-      class="index-default"
-      :style="{
-        backgroundImage: `url(${imgUrl})`,
-      }"
-    ></div>
-  </div>
+  ></div>
 </template>
 <script>
 export default {
@@ -39,7 +29,7 @@ export default {
       type: String,
       default: "",
     },
-    //图片等比宽高，不带单位
+    //图片等比宽高
     size: {
       type: String,
       default: "25px",
@@ -62,24 +52,17 @@ export default {
       default: "0px",
     },
   },
+  data() {
+    return {
+      toggle: false,
+    };
+  },
 };
 </script>
 <style scoped lang="less">
-.index {
+.LybIcon {
   position: relative;
-  .index-default,
-  .index-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    z-index: 999;
-  }
-}
-.index:hover .index-hover {
-  z-index: 1000;
+  background: no-repeat center center;
+  background-size: contain;
 }
 </style>

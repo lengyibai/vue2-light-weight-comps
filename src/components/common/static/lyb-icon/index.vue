@@ -63,5 +63,6 @@ export default {
 .LybIcon {
   position: relative;
   background: no-repeat center center;
+  background-size: contain;
 }
 </style>

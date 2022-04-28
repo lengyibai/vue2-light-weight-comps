@@ -28,26 +28,26 @@
     </div>
     <div class="swiper-pagination" ref="dot" v-show="isShowdot"></div>
     <transition name="fade">
-      <LybIcon
-        size="20"
-        v-if="isShowLR"
-        v-show="is_hover"
-        class="swiper-button-next"
-        :imgUrl="require('./img/right.png')"
-        imgUrlHover="null"
-        key="a"
-      ></LybIcon>
+      <div class="swiper-button-next">
+        <LybIcon
+          size="15px"
+          v-if="isShowLR"
+          v-show="true"
+          :imgUrl="require('./img/right.png')"
+          key="a"
+        ></LybIcon>
+      </div>
     </transition>
     <transition name="fade">
-      <LybIcon
-        size="20"
-        v-if="isShowLR"
-        v-show="is_hover"
-        class="swiper-button-prev"
-        :imgUrl="require('./img/left.png')"
-        imgUrlHover="null"
-        key="b"
-      ></LybIcon>
+      <div class="swiper-button-prev">
+        <LybIcon
+          size="15px"
+          v-if="isShowLR"
+          v-show="true"
+          :imgUrl="require('./img/left.png')"
+          key="b"
+        ></LybIcon>
+      </div>
     </transition>
   </div>
 </template>
@@ -204,8 +204,11 @@ export default {
   }
   .swiper-button-next,
   .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
-    transform: translateY(-50%);
+    border-radius: 50%;
   }
 }
 
