@@ -9,65 +9,13 @@
     <div class="FullScroll">
       <LybFullScroll direction="x" @end-scroll="endScroll" v-model="i">
         <!-- Echarts图表 -->
-        <div class="scroll-item" :class="{ opacity: i === 0 }">
-          <Echarts v-if="i === 0" />
-        </div>
-        <!-- 卡片翻转 -->
-        <div class="scroll-item" :class="{ opacity: i === 1 }">
-          <FlipBox v-if="i === 1" />
-        </div>
-        <!-- 图标 -->
-        <div class="scroll-item" :class="{ opacity: i === 2 }">
-          <Icon v-if="i === 2" />
-        </div>
-        <!-- loading -->
-        <div class="scroll-item" :class="{ opacity: i === 3 }">
-          <Loading v-if="i === 3" />
-        </div>
-        <!-- 生成二维码 -->
-        <div class="scroll-item" :class="{ opacity: i === 4 }">
-          <QrCode v-if="i === 4" />
-        </div>
-        <!-- 滑动选择器 -->
-        <div class="scroll-item" :class="{ opacity: i === 5 }">
-          <Range v-if="i === 5" />
-        </div>
-        <!-- 移动端滚动插件 -->
-        <div class="scroll-item" :class="{ opacity: i === 6 }">
-          <Scroll v-if="i === 6" />
-        </div>
-        <!-- swiper轮播图 -->
-        <div class="scroll-item" :class="{ opacity: i === 7 }">
-          <Swipe v-if="i === 7" />
-        </div>
-        <!-- swiper轮播图 -->
-        <div class="scroll-item" :class="{ opacity: i === 8 }">
-          <Table v-if="i === 8" />
-        </div>
-        <!-- 视频播放器 -->
-        <div class="scroll-item" :class="{ opacity: i === 9 }">
-          <Video v-if="i === 9" />
-        </div>
-
-        <div class="scroll-item" :class="{ opacity: i === 10 }">
-          <!-- 拖拽排序 -->
-          <DragSort v-if="i === 10" />
-        </div>
-        <!-- 省市区 -->
-        <div class="scroll-item" :class="{ opacity: i === 11 }">
-          <SelectAddress v-if="i === 11" />
-        </div>
-        <!-- 文件上传 -->
-        <div class="scroll-item" :class="{ opacity: i === 12 }">
-          <UploadSingle v-if="i === 12" />
-        </div>
-        <!-- 获取验证码按钮 -->
-        <div class="scroll-item" :class="{ opacity: i === 13 }">
-          <ValidationCountdown v-if="i === 13" />
-        </div>
-        <!-- 富文本 -->
-        <div class="scroll-item" :class="{ opacity: i === 14 }">
-          <RichText v-if="i === 14" />
+        <div
+          class="scroll-item"
+          :class="{ opacity: i === index }"
+          v-for="(item, index) in components"
+          :key="index"
+        >
+          <div v-if="i === index" :is="item.is"></div>
         </div>
       </LybFullScroll>
     </div>
@@ -90,6 +38,8 @@ import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚
 import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
 import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
+import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
+import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
@@ -110,6 +60,8 @@ export default {
     Swipe,
     Table,
     Video,
+    GridNumber,
+    GridLetter,
     DragSort,
     SelectAddress,
     UploadSingle,
@@ -119,22 +71,24 @@ export default {
   data() {
     return {
       components: [
-        { name: "Echarts图表", type: "static" },
-        { name: "卡片翻转", type: "static" },
-        { name: "图标", type: "static" },
-        { name: "loading", type: "static" },
-        { name: "生成二维码", type: "static" },
-        { name: "滑动选择器", type: "static" },
-        { name: "移动端滚动插件", type: "static" },
-        { name: "swiper轮播图", type: "static" },
-        { name: "表格", type: "static" },
-        { name: "视频播放器", type: "static" },
+        { name: "Echarts图表", is: "Echarts", type: "static" },
+        { name: "卡片翻转", is: "FlipBox", type: "static" },
+        { name: "图标", is: "Icon", type: "static" },
+        { name: "loading", is: "Loading", type: "static" },
+        { name: "生成二维码", is: "QrCode", type: "static" },
+        { name: "滑动选择器", is: "Range", type: "static" },
+        { name: "移动端滚动插件", is: "Scroll", type: "static" },
+        { name: "swiper轮播图", is: "Swipe", type: "static" },
+        { name: "表格", is: "Table", type: "static" },
+        { name: "视频播放器", is: "Video", type: "static" },
+        { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
+        { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
 
-        { name: "拖拽排序", type: "dynamic" },
-        { name: "省市区", type: "dynamic" },
-        { name: "文件上传", type: "dynamic" },
-        { name: "获取验证码按钮", type: "dynamic" },
-        { name: "富文本", type: "dynamic" },
+        { name: "拖拽排序", is: "DragSort", type: "dynamic" },
+        { name: "省市区", is: "SelectAddress", type: "dynamic" },
+        { name: "文件上传", is: "UploadSingle", type: "dynamic" },
+        { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
+        { name: "富文本", is: "RichText", type: "dynamic" },
       ],
       i: 0,
     };
