@@ -40,6 +40,7 @@ import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
 import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
 import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
+import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
@@ -62,6 +63,8 @@ export default {
     Video,
     GridNumber,
     GridLetter,
+    LybMask,
+
     DragSort,
     SelectAddress,
     UploadSingle,
@@ -83,6 +86,7 @@ export default {
         { name: "视频播放器", is: "Video", type: "static" },
         { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
+        { name: "蒙版", is: "LybMask", type: "static" },
 
         { name: "拖拽排序", is: "DragSort", type: "dynamic" },
         { name: "省市区", is: "SelectAddress", type: "dynamic" },
