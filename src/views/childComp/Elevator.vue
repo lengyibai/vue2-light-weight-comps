@@ -58,13 +58,12 @@ export default {
 .Elevator {
   display: flex;
   flex-direction: column;
-  width: 100%;
   .page {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 15px 0;
+    padding: 15px 10px;
     border-right: 1px solid #fff;
     border-bottom: 1px solid #fff;
     color: #fff;

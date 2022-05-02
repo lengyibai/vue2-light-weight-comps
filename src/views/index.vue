@@ -1,11 +1,18 @@
 <template>
   <div class="index">
-    <Elevator
-      class="Elevator"
-      @change="change"
-      :index="i"
-      :components="components"
-    />
+    <div class="left">
+      <Elevator
+        class="Elevator"
+        @change="change"
+        :index="i"
+        :components="components"
+      />
+      <div class="tips">
+        <span>绿色为简单的小组件，功能性不强</span>
+        <span>蓝色为相对复杂一点的组件，功能性较强</span>
+        <span>黄色为自定义指令</span>
+      </div>
+    </div>
     <div class="FullScroll">
       <LybFullScroll direction="x" @end-scroll="endScroll" v-model="i">
         <!-- Echarts图表 -->
@@ -18,11 +25,6 @@
           <div v-if="i === index" :is="item.is"></div>
         </div>
       </LybFullScroll>
-    </div>
-    <div class="tips">
-      <span>绿色为简单的小组件，功能性不强</span>
-      <span>蓝色为相对复杂一点的组件，功能性较强</span>
-      <span>黄色为自定义指令</span>
     </div>
   </div>
 </template>
@@ -38,6 +40,7 @@ import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚
 import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
 import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
+import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
 import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
 import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
 import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
@@ -61,6 +64,7 @@ export default {
     Swipe,
     Table,
     Video,
+    GridLayout,
     GridNumber,
     GridLetter,
     LybMask,
@@ -84,6 +88,7 @@ export default {
         { name: "swiper轮播图", is: "Swipe", type: "static" },
         { name: "表格", is: "Table", type: "static" },
         { name: "视频播放器", is: "Video", type: "static" },
+        { name: "Grid特色布局", is: "GridLayout", type: "static" },
         { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
         { name: "蒙版", is: "LybMask", type: "static" },
@@ -119,8 +124,31 @@ export default {
   height: 100vh;
   overflow: hidden;
   background-color: #000;
-  .Elevator {
-    width: 200px;
+  .left {
+    overflow: auto;
+    display: flex;
+    .tips {
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100%;
+      justify-content: space-between;
+      color: #fff;
+      background-color: #000;
+      span {
+        writing-mode: vertical-lr;
+        &:nth-of-type(1) {
+          color: #2ecc71;
+        }
+        &:nth-of-type(2) {
+          color: #3498db;
+        }
+        &:nth-of-type(3) {
+          color: #f1c40f;
+        }
+      }
+    }
   }
   .FullScroll {
     position: relative;
@@ -131,27 +159,6 @@ export default {
       opacity: 0;
       transition: all 0.5s;
       padding: 25px;
-    }
-  }
-  .tips {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 200px;
-    height: 100%;
-    justify-content: space-between;
-    color: #fff;
-    span {
-      writing-mode: vertical-lr;
-      &:nth-of-type(1) {
-        color: #2ecc71;
-      }
-      &:nth-of-type(2) {
-        color: #3498db;
-      }
-      &:nth-of-type(3) {
-        color: #f1c40f;
-      }
     }
   }
 }
