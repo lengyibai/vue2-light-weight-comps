@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="LybMask" v-show="value" @click="hide">
+    <div class="LybMask" v-show="value" @mouseup="hide">
       <slot>这是一个蒙版</slot>
     </div>
   </transition>
