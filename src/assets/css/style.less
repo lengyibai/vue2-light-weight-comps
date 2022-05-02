@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demoFull {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  width: 25vw;
+  height: 10vw;
+  border: 3px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2.5vw;
+  transition: all 0.25s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  &:active {
+    transition: all 0.1s;
+    transform: translateY(10px) scale(0.99);
+  }
+}

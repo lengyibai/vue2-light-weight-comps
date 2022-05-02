@@ -22,20 +22,5 @@ export default {
 .demo {
   width: 100%;
   height: 100%;
-  .btn {
-    width: 25vw;
-    height: 10vw;
-    border: 3px solid #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 2.5vw;
-    transition: all 0.25s;
-    &:hover {
-      background-color: #fff;
-      color: #000;
-    }
-  }
 }
 </style>
