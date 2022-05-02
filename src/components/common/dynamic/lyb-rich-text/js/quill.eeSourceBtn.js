@@ -11,6 +11,7 @@ class eeSourceBtn {
     let button = document.createElement("button");
     //display button text
     button.innerHTML = "html";
+    button.style.color = "#444";
     button.onclick = function () {
       theClass.showSourceEditor(quill);
     };
