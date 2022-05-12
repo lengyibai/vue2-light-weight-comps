@@ -64,5 +64,6 @@ export default {
   position: relative;
   background: no-repeat center center;
   background-size: contain;
+  cursor: pointer;
 }
 </style>

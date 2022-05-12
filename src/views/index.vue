@@ -37,6 +37,7 @@ import Loading from "../components/common/static/lyb-loading/demo"; //loading
 import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
 import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
 import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚动插件
+import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
 import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
 import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
@@ -68,6 +69,7 @@ export default {
     GridNumber,
     GridLetter,
     LybMask,
+    LybSvg,
 
     DragSort,
     SelectAddress,
@@ -86,6 +88,7 @@ export default {
         { name: "滑动选择器", is: "Range", type: "static" },
         { name: "移动端滚动插件", is: "Scroll", type: "static" },
         { name: "swiper轮播图", is: "Swipe", type: "static" },
+        { name: "SVG图标", is: "LybSvg", type: "static" },
         { name: "表格", is: "Table", type: "static" },
         { name: "视频播放器", is: "Video", type: "static" },
         { name: "Grid特色布局", is: "GridLayout", type: "static" },
