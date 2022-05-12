@@ -16,14 +16,20 @@
   ></span>
 </template>
 <script>
-import icon from "./svg/icon.js";
+/*
+注意：SVG代码必须删除以下内容
+class="icon"
+width:宽度px
+height:高度px
+并将图标颜色fill更改为currentColor
+ */
 export default {
   name: "LybSvg",
   props: {
     // SVG代码
     svg: {
       type: String,
-      default: icon.love,
+      default: "",
     },
     color: {
       type: String,
@@ -63,16 +69,6 @@ export default {
     left: {
       type: String,
       default: "0px",
-    },
-  },
-  data() {
-    return {
-      toggle: false,
-    };
-  },
-  computed: {
-    icon() {
-      return icon;
     },
   },
   methods: {

@@ -2,10 +2,10 @@
   <div class="demo demoFull">
     <div class="flex">
       <LybSvg
-        :svg="icon.love"
-        color="#fff"
-        enter-color="red"
-        down-color="green"
+        :svg="icon.wzry"
+        color="red"
+        enter-color="yellow"
+        down-color="blue"
         size="250px"
         right="44px"
       />王者荣耀
