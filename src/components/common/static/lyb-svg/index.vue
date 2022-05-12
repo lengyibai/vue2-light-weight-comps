@@ -106,5 +106,8 @@ export default {
   background-size: contain;
   cursor: pointer;
   transition: all 0.25s;
+  &:hover {
+    transition: all 0.1s;
+  }
 }
 </style>
