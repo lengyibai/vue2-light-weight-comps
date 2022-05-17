@@ -91,12 +91,16 @@ export default {
   }
 }
 
+
+.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button{
+  width:fit-content;
+}
+</style>
+<style scoped>
 .lyb-rich-text {
   width: 100%;
   height: 100%;
 }
-</style>
-<style scoped>
 .disabled {
   cursor: not-allowed;
   pointer-events: none;
