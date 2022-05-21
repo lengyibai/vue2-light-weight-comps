@@ -24,8 +24,17 @@ export default {
     },
   },
   name: "lyb-grid",
+  // updated() {
+  //   this.updateHeight();
+  // },
   mounted() {
-    this.updateHeight();
+    let timer = setInterval(() => {
+      if (this.$refs.lybGrid.querySelectorAll('.box')[0]?.offsetHeight) {
+        clearInterval(timer);
+        return;
+      }
+      this.updateHeight();
+    }, 1000);
     window.addEventListener(
       "resize",
       function () {
