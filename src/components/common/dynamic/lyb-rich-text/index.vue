@@ -91,9 +91,9 @@ export default {
   }
 }
 
-
-.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button{
-  width:fit-content;
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  width: fit-content;
 }
 </style>
 <style scoped>

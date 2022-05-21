@@ -20,34 +20,46 @@ export default {
     },
     eqhMultiple: {
       type: Number,
-      default: 1,
+      default: 0,
     },
   },
   name: "lyb-grid",
   // updated() {
   //   this.updateHeight();
   // },
+  data() {
+    return {
+      lybGrid: null,
+    };
+  },
   mounted() {
+    this.lybGrid = this.$refs.lybGrid;
+    console.log(this.lybGrid);
     let timer = setInterval(() => {
-      if (this.$refs.lybGrid.querySelectorAll('.box')[0]?.offsetHeight) {
+      if (this.lybGrid.querySelectorAll(".box")[0]?.offsetHeight) {
         clearInterval(timer);
         return;
       }
       this.updateHeight();
     }, 1000);
+    if (this.eqhMultiple === 0) return;
     window.addEventListener(
       "resize",
       function () {
-        const box = document.querySelectorAll(".box");
-        box.forEach((item) => {
-          item.style.height = item.offsetWidth / this.eqhMultiple + "px";
-        });
+        requestAnimationFrame(
+          function () {
+            const box = this.lybGrid.querySelectorAll(".box");
+            box.forEach((item) => {
+              item.style.height = item.offsetWidth / this.eqhMultiple + "px";
+            });
+          }.bind(this),
+        );
       }.bind(this),
     );
   },
   methods: {
     updateHeight() {
-      const box = this.$refs.lybGrid.querySelectorAll(".box");
+      const box = this.lybGrid.querySelectorAll(".box");
       box.forEach((item) => {
         //只对新加的盒子设置高度
         if (item.offsetHeight) return;
