@@ -14,9 +14,13 @@ import LybSwipe from "./static/lyb-swipe"; //轮播图
 import LybTable from "./static/lyb-table"; /* 表格 */
 import LybTableColumn from "./static/lyb-table/lyb-table-column.vue";
 import LybVideo from "./static/lyb-video"; //视频播放器
+import LybIframe from "./static/lyb-iframe"; //iframe
+import LybGrid from "./static/lyb-grid-layout"; //视频播放器
+import LybGridLetter from "./static/lyb-grid-letter"; //视频播放器
+import LybGridNumber from "./static/lyb-grid-number"; //视频播放器
 
 //#####··········动态··········#####//
-// import LybRichText from "./dynamic/lyb-rich-text"; //富文本框
+import LybRichText from "./dynamic/lyb-rich-text"; //富文本框
 import LybDragSort from "./dynamic/lyb-drag-sort"; //拖拽排序
 import LybSelectAddress from "./dynamic/lyb-select-address"; // 省市区联动
 import LybUploadMultiple from "./dynamic/lyb-upload/lyb-upload-multiple.vue"; /* 文件上传 */
@@ -25,13 +29,17 @@ import LybValidationCountdown from "./dynamic/lyb-validation-countdown"; // 发�
 
 //使用组件
 const components = [
-  LybFullScroll,
   /* 静态 */
   LybEchartsBar,
   LybEchartsLine,
   LybEchartsPie,
   LybFlipBox,
+  LybFullScroll,
+  LybGrid,
+  LybGridLetter,
+  LybGridNumber,
   LybIcon,
+  LybIframe,
   LybLoading,
   LybQrCode,
   LybRange,
@@ -42,8 +50,8 @@ const components = [
   LybTableColumn,
   LybVideo,
   /* 动态 */
-  // LybRichText,
   LybDragSort,
+  LybRichText,
   LybSelectAddress,
   LybUploadMultiple,
   LybUploadSingle,

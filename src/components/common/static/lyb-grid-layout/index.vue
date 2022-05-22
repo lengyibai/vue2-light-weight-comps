@@ -34,7 +34,6 @@ export default {
   },
   mounted() {
     this.lybGrid = this.$refs.lybGrid;
-    console.log(this.lybGrid);
     let timer = setInterval(() => {
       if (this.lybGrid.querySelectorAll(".box")[0]?.offsetHeight) {
         clearInterval(timer);

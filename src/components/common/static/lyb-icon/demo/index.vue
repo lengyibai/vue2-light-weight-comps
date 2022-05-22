@@ -4,8 +4,8 @@
       <LybIcon
         :imgUrl="require('./img/love.svg')"
         title="爱"
-        size="250px"
-        right="44px"
+        size="10vw"
+        right="2vw"
       />爱
     </div>
     <div class="love flex">
@@ -13,8 +13,8 @@
         :imgUrl="require('./img/love_gary.svg')"
         :imgUrlHover="require('./img/love_red.svg')"
         title="心"
-        size="250px"
-        right="44px"
+        size="10vw"
+        right="2vw"
       />爱
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  font-size: 250px;
+  font-size: 10vw;
   overflow: auto;
 }
 </style>

@@ -60,7 +60,6 @@ export default {
           : e.wheelDelta > 0 && this.i > 0
           ? this.i--
           : "";
-        console.log(father);
         father.style[direction ? "top" : "left"] =
           -this.i * (direction ? father.offsetHeight : father.offsetWidth) +
           "px";

@@ -9,13 +9,11 @@
   </div>
 </template>
 <script>
-import LybGrid from "../index.vue";
 export default {
   name: "demo",
   data() {
     return {};
   },
-  components: { LybGrid },
 };
 </script>
 <style scoped lang="less">

@@ -9,14 +9,13 @@
   height: 100%;
 }
 .btn {
-  width: 25vw;
-  height: 10vw;
+  padding: 0.5em 1em;
   border: 3px solid #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 2.5vw;
+  font-size: 2vw;
   transition: all 0.25s;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -30,5 +29,5 @@
 }
 .btn:active {
   transition: all 0.1s;
-  transform: translateY(10px) scale(0.99);
+  transform: translateY(5%) scale(0.95);
 }

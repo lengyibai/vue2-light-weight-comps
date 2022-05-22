@@ -22,6 +22,6 @@ export default {
 .demo {
   flex-direction: column;
   color: #fff;
-  font-size: 100px;
+  font-size: 10vw;
 }
 </style>

@@ -20,7 +20,6 @@
  * 字母模板虽然看着更直观、可读性强，但字母模板属于父元素属性，修改并不会触发子元素的响应式动画
  * 数字模板虽然可读性不强，但它直接修改的子元素属性，能触发子元素动画
  */
-import LybGridLetter from "../index.vue";
 export default {
   name: "demo",
   props: {},
@@ -54,7 +53,6 @@ export default {
       layout: "",
     };
   },
-  components: { LybGridLetter },
   mounted() {
     this.fn();
     window.addEventListener(

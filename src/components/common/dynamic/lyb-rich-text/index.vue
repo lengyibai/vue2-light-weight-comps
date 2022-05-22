@@ -29,9 +29,7 @@ export default {
       default: "",
     },
   },
-  components: {
-    quillEditor,
-  },
+  name: "LybRichText",
   data() {
     return {
       contentText: "",
@@ -58,6 +56,9 @@ export default {
         },
       },
     };
+  },
+  components: {
+    quillEditor,
   },
   watch: {
     content(v) {

@@ -89,7 +89,6 @@ export default {
   }
 }
 .active {
-  filter: blur(2.5px);
   transform: scale(1.25);
   opacity: 0.5;
 }

@@ -27,7 +27,6 @@
  * 字母模板虽然看着更直观、可读性强，但字母模板属于父元素属性，修改并不会触发子元素的响应式动画
  * 推荐：当布局定死不会改变或不需要动画时，可以考虑使用字母模板
  */
-import LybGridNumber from "../index.vue";
 export default {
   name: "demo",
   props: {},
@@ -71,7 +70,6 @@ export default {
       box: [],
     };
   },
-  components: { LybGridNumber },
   mounted() {
     this.fn();
     window.addEventListener(

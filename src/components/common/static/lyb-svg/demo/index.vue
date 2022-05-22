@@ -6,9 +6,9 @@
         color="red"
         enter-color="yellow"
         down-color="blue"
-        size="250px"
-        right="44px"
-      />王者荣耀
+        size="10vw"
+        right="2vw"
+      />尝试按下图标
     </div>
   </div>
 </template>
@@ -29,7 +29,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  font-size: 250px;
+  font-size: 9vw;
+  user-select: none;
   overflow: auto;
 }
 </style>

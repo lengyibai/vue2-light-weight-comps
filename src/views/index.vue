@@ -45,6 +45,7 @@ import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Gri
 import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
 import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
 import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
+import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
@@ -58,6 +59,7 @@ export default {
     Echarts,
     FlipBox,
     Icon,
+    LybSvg,
     Loading,
     QrCode,
     Range,
@@ -69,7 +71,7 @@ export default {
     GridNumber,
     GridLetter,
     LybMask,
-    LybSvg,
+    LybIframe,
 
     DragSort,
     SelectAddress,
@@ -83,18 +85,19 @@ export default {
         { name: "Echarts图表", is: "Echarts", type: "static" },
         { name: "卡片翻转", is: "FlipBox", type: "static" },
         { name: "图标", is: "Icon", type: "static" },
+        { name: "SVG图标", is: "LybSvg", type: "static" },
         { name: "loading", is: "Loading", type: "static" },
         { name: "生成二维码", is: "QrCode", type: "static" },
         { name: "滑动选择器", is: "Range", type: "static" },
         { name: "移动端滚动插件", is: "Scroll", type: "static" },
         { name: "swiper轮播图", is: "Swipe", type: "static" },
-        { name: "SVG图标", is: "LybSvg", type: "static" },
         { name: "表格", is: "Table", type: "static" },
         { name: "视频播放器", is: "Video", type: "static" },
         { name: "Grid特色布局", is: "GridLayout", type: "static" },
         { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
         { name: "蒙版", is: "LybMask", type: "static" },
+        { name: "iframe", is: "LybIframe", type: "static" },
 
         { name: "拖拽排序", is: "DragSort", type: "dynamic" },
         { name: "省市区", is: "SelectAddress", type: "dynamic" },

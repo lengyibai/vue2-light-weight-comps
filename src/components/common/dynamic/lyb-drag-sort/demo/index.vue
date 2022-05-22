@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-import LybDragSort from "../index.vue";
 export default {
   name: "demo",
   data() {
@@ -41,7 +40,6 @@ export default {
       arr: [],
     };
   },
-  components: { LybDragSort },
   created() {
     this.sort();
   },
@@ -62,14 +60,14 @@ export default {
   flex-direction: column;
   background-color: #000;
   color: #fff;
-  font-size: 35px;
+  font-size: 2vw;
   h1 {
     -webkit-box-reflect: below 0px
       linear-gradient(transparent, transparent 25%, rgba(0, 0, 0, 0.3));
   }
   .box {
-    width: 150px;
-    height: 150px;
+    width: 10vw;
+    height: 10vw;
     margin: 12.5px;
     img {
       width: 100%;

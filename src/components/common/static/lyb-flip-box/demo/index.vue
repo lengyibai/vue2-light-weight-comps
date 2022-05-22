@@ -25,7 +25,7 @@
     .box {
       width: 100%;
       height: 100%;
-      font-size: 50px;
+      font-size: 2.5vw;
       border: 5px solid #fff;
     }
   }
