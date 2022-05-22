@@ -7,6 +7,7 @@
         activeDynamic: currentIndex === index && item.type === 'dynamic',
         static: item.type === 'static',
         dynamic: item.type === 'dynamic',
+        directive: item.type === 'directive',
       }"
       @click="fn(index)"
       v-for="(item, index) in components"
@@ -90,6 +91,14 @@ export default {
   &:hover {
     transition: all 0s;
     background-color: #2980b9;
+  }
+}
+
+.directive {
+  border-color: #f39c12 !important;
+  &:hover {
+    transition: all 0s;
+    background-color: #f39c12;
   }
 }
 </style>

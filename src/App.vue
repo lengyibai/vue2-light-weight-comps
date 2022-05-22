@@ -28,7 +28,7 @@ export default {
     right: 0;
     bottom: 0;
     color: #3498db;
-    font-size: 2vw;
+    font-size: 20px;
     &:hover {
       text-decoration: underline;
     }

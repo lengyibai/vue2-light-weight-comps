@@ -53,6 +53,9 @@ import UploadFile from "../components/common/dynamic/lyb-upload/demo"; //文件�
 import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
+
+import ParallaxImg from "@/directives/ParallaxImg";
+import ParallaxVideo from "@/directives/ParallaxVideo";
 export default {
   name: "index",
   components: {
@@ -80,6 +83,9 @@ export default {
     UploadImg,
     ValidationCountdown,
     RichText,
+
+    ParallaxImg,
+    ParallaxVideo,
   },
   data() {
     return {
@@ -107,6 +113,9 @@ export default {
         { name: "图片上传", is: "UploadImg", type: "dynamic" },
         { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
         { name: "富文本", is: "RichText", type: "dynamic" },
+
+        { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
+        { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
       ],
       i: 0,
     };

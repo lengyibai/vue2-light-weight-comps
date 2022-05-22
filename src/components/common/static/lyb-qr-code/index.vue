@@ -1,5 +1,20 @@
 <template>
-  <vue-qr :logoSrc="icon" :text="text" :size="size" />
+  <div class="LybQrCode">
+    <img
+      :src="imgUrl"
+      :style="{
+        width: size,
+        height: size,
+      }"
+    />
+    <vue-qr
+      :logoSrc="icon"
+      :callback="test"
+      :text="text"
+      :size="1000"
+      :bindElement="false"
+    />
+  </div>
 </template>
 <script>
 //https://gitee.com/mirrors_soldair/node-qrcode
@@ -19,8 +34,18 @@ export default {
       default: require("./img/icon.png"),
     },
     size: {
-      type: Number,
-      default: 100,
+      type: String,
+      default: "25vh",
+    },
+  },
+  data() {
+    return {
+      imgUrl: "",
+    };
+  },
+  methods: {
+    test(dataUrl) {
+      this.imgUrl = dataUrl;
     },
   },
 };
