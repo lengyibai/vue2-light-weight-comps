@@ -54,8 +54,12 @@ import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图�
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
 
-import ParallaxImg from "@/directives/ParallaxImg";
-import ParallaxVideo from "@/directives/ParallaxVideo";
+import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
+import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
+import Particle from "@/directives/Particle"; //粒子效果
+import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
+import SweepLight from "@/directives/SweepLight"; //卡片扫光
+import Typewriter from "@/directives/Typewriter"; //打字机
 export default {
   name: "index",
   components: {
@@ -86,6 +90,10 @@ export default {
 
     ParallaxImg,
     ParallaxVideo,
+    Particle,
+    MaskGradient,
+    SweepLight,
+    Typewriter,
   },
   data() {
     return {
@@ -116,6 +124,10 @@ export default {
 
         { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
         { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
+        { name: "粒子效果", is: "Particle", type: "directive" },
+        { name: "渐变蒙版", is: "MaskGradient", type: "directive" },
+        { name: "卡片扫光", is: "SweepLight", type: "directive" },
+        { name: "打字机", is: "Typewriter", type: "directive" },
       ],
       i: 0,
     };

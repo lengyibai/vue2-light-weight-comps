@@ -31,3 +31,8 @@
   transition: all 0.1s;
   transform: translateY(5%) scale(0.95);
 }
+
+.bgImg {
+  background: url("../img/lyb.png") no-repeat center center;
+  background-size: cover;
+}

@@ -1,0 +1,34 @@
+<template>
+  <div class="demoFull flex">
+    <div class="lyb bgImg" v-maskGradient>
+      <span>这里是冷弋(yi)白</span>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "Particle",
+  data() {
+    return {};
+  },
+  components: {},
+  methods: {},
+};
+</script>
+<style scoped lang="less">
+.demoFull {
+  .lyb {
+    width: clamp(0px, 25vw, 90vh);
+    height: clamp(0px, 25vw, 90vh);
+    span {
+      position: absolute;
+      width: 100%;
+      font-size: 3vw;
+      color: #fff;
+      bottom: 0.25em;
+      z-index: 1;
+      text-align: center;
+    }
+  }
+}
+</style>

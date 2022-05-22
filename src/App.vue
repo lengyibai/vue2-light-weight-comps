@@ -18,7 +18,7 @@ export default {
   components: { index },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 #app {
   position: relative;
   width: 100vw;

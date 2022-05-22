@@ -170,17 +170,17 @@ const maskGradient = {
 //#####··········卡片扫光··········#####//
 const sweepLight = {
   inserted(el, binding) {
-    const auto = binding.value !== false ? true : false;
+    const auto = binding.value;
     const light = document.createElement("div");
     el.style.position = "relative";
     light.style.cssText = `
       position: absolute;
       top: 0px;
       left: 0px;
-      width: ${el.offsetWidth / 3}px;
+      width: ${el.offsetWidth / 5}px;
       height: 100%;
-      background-color: rgba(255, 255, 255, 0.5);
-      transform: skewX(45deg) translateX(${el.offsetWidth * 2}px);
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: skewX(45deg) translateX(${el.offsetWidth * 1.25}px);
       transition: all 1s;
       filter: blur(5px)
     `;
@@ -188,18 +188,18 @@ const sweepLight = {
     if (auto) {
       light.style.transitionDelay = ` ${binding.value}s`;
       light.style.transform = `skewX(45deg) translateX(${
-        -el.offsetWidth * 1.5
+        -el.offsetWidth * 1.25
       }px)`;
     } else {
       el.addEventListener("mouseenter", () => {
         light.style.transform = `skewX(45deg) translateX(${
-          -el.offsetWidth * 1.5
+          -el.offsetWidth / 1.5
         }px)`;
       });
 
       el.addEventListener("mouseleave", () => {
         light.style.transform = `skewX(45deg) translateX(${
-          el.offsetWidth * 2
+          el.offsetWidth * 1.25
         }px)`;
       });
     }
@@ -208,21 +208,42 @@ const sweepLight = {
 
 //#####··········打字机··········#####//
 const typewriter = {
-  inserted(el, binding) {
+  inserted(el) {
+    let say = el.innerHTML;
+    el.innerHTML = "";
     setTimeout(() => {
-      let say = binding.value;
       let timer;
       let num = 0, //用于累加遍历字符串
         text = ""; //用于输出在屏幕上
-      timer = setInterval(() => {
-        text += say[num]; //遍历输出的文字
-        el.innerHTML = text; //输出在屏幕上
-        num++;
-        if (num == say.length) {
-          //如果文字输出完毕
-          clearInterval(timer); //清除用于输出文字的计时器
-        }
-      }, 100);
+      fn();
+      function fn() {
+        timer = setInterval(() => {
+          text += say[num]; //遍历输出的文字
+          el.innerHTML = text; //输出在屏幕上
+          if ("，、。？！".includes(say[num])) {
+            clearInterval(timer); //清除用于输出文字的计时器
+            setTimeout(
+              () => {
+                fn();
+              },
+              "，" === say[num]
+                ? 750
+                : "、" === say[num]
+                ? 250
+                : "。" === say[num]
+                ? 1500
+                : "？！".includes(say[num])
+                ? 1000
+                : 750,
+            );
+          }
+          num++;
+          if (num == say.length) {
+            //如果文字输出完毕
+            clearInterval(timer); //清除用于输出文字的计时器
+          }
+        }, 100);
+      }
     }, 750);
   },
 };
