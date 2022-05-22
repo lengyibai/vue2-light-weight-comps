@@ -31,9 +31,6 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    console.log(this.value);
-  },
   methods: {
     fn(e) {
       this.$editFile(e).then((res) => {
@@ -64,6 +61,7 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 50%;
   &:hover {
     background-color: rgba(225, 225, 225, 0.25);
   }
