@@ -25,6 +25,7 @@ import LybDragSort from "./dynamic/lyb-drag-sort"; //拖拽排序
 import LybSelectAddress from "./dynamic/lyb-select-address"; // 省市区联动
 import LybUploadMultiple from "./dynamic/lyb-upload/lyb-upload-multiple.vue"; /* 文件上传 */
 import LybUploadSingle from "./dynamic/lyb-upload/lyb-upload-single.vue";
+import LybUploadImg from "./dynamic/lyb-upload-img";
 import LybValidationCountdown from "./dynamic/lyb-validation-countdown"; // 发送验证码按钮（倒计时）
 
 //使用组件
@@ -55,6 +56,7 @@ const components = [
   LybSelectAddress,
   LybUploadMultiple,
   LybUploadSingle,
+  LybUploadImg,
   LybValidationCountdown,
 ];
 export default {

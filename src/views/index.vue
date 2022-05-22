@@ -49,7 +49,8 @@ import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字�
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
-import UploadSingle from "../components/common/dynamic/lyb-upload/demo"; //文件上传
+import UploadFile from "../components/common/dynamic/lyb-upload/demo"; //文件上传
+import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
 export default {
@@ -75,7 +76,8 @@ export default {
 
     DragSort,
     SelectAddress,
-    UploadSingle,
+    UploadFile,
+    UploadImg,
     ValidationCountdown,
     RichText,
   },
@@ -101,7 +103,8 @@ export default {
 
         { name: "拖拽排序", is: "DragSort", type: "dynamic" },
         { name: "省市区", is: "SelectAddress", type: "dynamic" },
-        { name: "文件上传", is: "UploadSingle", type: "dynamic" },
+        { name: "文件上传", is: "UploadFile", type: "dynamic" },
+        { name: "图片上传", is: "UploadImg", type: "dynamic" },
         { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
         { name: "富文本", is: "RichText", type: "dynamic" },
       ],

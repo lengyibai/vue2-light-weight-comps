@@ -119,7 +119,7 @@ export default {
     /* 域名 */
     url: {
       type: String,
-      default: process.env.VUE_APP_lxt + "/sysFiles/upload",
+      default: "",
     },
     /* 头部信息 */
     headers: {
