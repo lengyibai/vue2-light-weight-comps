@@ -107,8 +107,12 @@ export default {
         const father = this.$refs.LybFullScroll;
         this.i = i;
         let direction = this.direction === "y";
-        father.style[direction ? "top" : "left"] =
-          -i * (direction ? father.offsetHeight : father.offsetWidth) + "px";
+        try {
+          father.style[direction ? "top" : "left"] =
+            -i * (direction ? father.offsetHeight : father.offsetWidth) + "px";
+        } catch (error) {
+          /*  */
+        }
       });
     },
   },

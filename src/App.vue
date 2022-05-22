@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <index />
+    <a
+      v-textHoverColor
+      class="lyb"
+      href="https://gitee.com/lengyibai"
+      target="_blank"
+      >@冷弋白</a
+    >
   </div>
 </template>
 
@@ -16,5 +23,15 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
+  .lyb {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    color: #3498db;
+    font-size: 2vw;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
