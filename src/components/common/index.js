@@ -10,6 +10,7 @@ import LybQrCode from "./static/lyb-qr-code"; //生成二维码组件
 import LybRange from "./static/lyb-range"; //滑动选择器
 import LybScroll from "./static/lyb-scroll"; //滚动组件精简版
 import LybSvg from "./static/lyb-svg"; //SVG图标
+import LybSprites from "./static/lyb-sprites"; //SVG图标
 import LybSwipe from "./static/lyb-swipe"; //轮播图
 import LybTable from "./static/lyb-table"; /* 表格 */
 import LybTableColumn from "./static/lyb-table/lyb-table-column.vue";
@@ -49,6 +50,7 @@ const components = [
   LybSwipe,
   LybTable,
   LybTableColumn,
+  LybSprites,
   LybVideo,
   /* 动态 */
   LybDragSort,

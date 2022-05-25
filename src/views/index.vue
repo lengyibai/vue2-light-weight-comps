@@ -32,32 +32,33 @@
 import Elevator from "./childComp/Elevator.vue";
 import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
 import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
+import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
+import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
+import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
 import Icon from "../components/common/static/lyb-icon/demo"; //图标
 import Loading from "../components/common/static/lyb-loading/demo"; //loading
+import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
+import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
+import LybSprites from "../components/common/static/lyb-sprites/demo"; //精灵图
+import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
 import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
 import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
 import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚动插件
-import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
 import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
 import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
-import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
-import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
-import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
-import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
-import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
+import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
 import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
 import UploadFile from "../components/common/dynamic/lyb-upload/demo"; //文件上传
 import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
-import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
 
+import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
 import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
 import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
 import Particle from "@/directives/Particle"; //粒子效果
-import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
 import SweepLight from "@/directives/SweepLight"; //卡片扫光
 import Typewriter from "@/directives/Typewriter"; //打字机
 export default {
@@ -66,32 +67,33 @@ export default {
     Elevator,
     Echarts,
     FlipBox,
+    GridLayout,
+    GridLetter,
+    GridNumber,
     Icon,
-    LybSvg,
     Loading,
+    LybIframe,
+    LybMask,
+    LybSprites,
+    LybSvg,
     QrCode,
     Range,
     Scroll,
     Swipe,
     Table,
     Video,
-    GridLayout,
-    GridNumber,
-    GridLetter,
-    LybMask,
-    LybIframe,
 
     DragSort,
+    RichText,
     SelectAddress,
     UploadFile,
     UploadImg,
     ValidationCountdown,
-    RichText,
 
+    MaskGradient,
     ParallaxImg,
     ParallaxVideo,
     Particle,
-    MaskGradient,
     SweepLight,
     Typewriter,
   },
@@ -114,6 +116,7 @@ export default {
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
         { name: "蒙版", is: "LybMask", type: "static" },
         { name: "iframe", is: "LybIframe", type: "static" },
+        { name: "精灵图", is: "LybSprites", type: "static" },
 
         { name: "拖拽排序", is: "DragSort", type: "dynamic" },
         { name: "省市区", is: "SelectAddress", type: "dynamic" },
