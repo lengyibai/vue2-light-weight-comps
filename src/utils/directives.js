@@ -318,7 +318,7 @@ const textHoverColor = {
     left: 0;
     color: transparent;
     background-color: #fff;
-    transition: all 0.25s;
+    transition: all 0.35s;
     -webkit-background-clip: text;
     clip-path: circle(75% at 50% 50%);
     `;
@@ -330,7 +330,7 @@ const textHoverColor = {
     bottom: 0;
     color: transparent;
     background-color: #2980b9;
-    transition: all 0.25s;
+    transition: all 0.35s;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
@@ -342,7 +342,7 @@ const textHoverColor = {
       mask.style.clipPath = "circle(0% at 50% 50%)";
       setTimeout(() => {
         line.style.width = "100%";
-      }, 250);
+      }, 175);
     });
     el.addEventListener("mouseleave", () => {
       mask.style.clipPath = "circle(75% at 50% 50%)";
