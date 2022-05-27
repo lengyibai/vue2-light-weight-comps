@@ -34,6 +34,7 @@ export default {
   methods: {
     fn(e) {
       this.$editFile(e).then((res) => {
+        console.log(res);
         alert(
           "上传成功，正常来讲成功后会显示图片、删除图片，但此处并没有图床接口",
         );

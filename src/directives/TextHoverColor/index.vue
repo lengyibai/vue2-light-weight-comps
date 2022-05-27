@@ -11,6 +11,6 @@
   color: #2980b9;
   cursor: pointer;
   user-select: none;
-  -webkit-box-reflect: below -10px linear-gradient(transparent, transparent 0%, rgba(0, 0, 0, 0.25));
+  -webkit-box-reflect: below -10px linear-gradient(transparent, transparent 1%, rgba(0, 0, 0, 0.25));
 }
 </style>
