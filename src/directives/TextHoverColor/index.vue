@@ -6,7 +6,7 @@
 <style scoped lang="less">
 .lyb {
   position: relative;
-  font-size: 15vw;
+  font-size: 10vw;
   transform: translateY(-50%);
   color: #2980b9;
   cursor: pointer;
