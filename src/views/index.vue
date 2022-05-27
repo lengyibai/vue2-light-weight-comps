@@ -61,6 +61,7 @@ import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
 import Particle from "@/directives/Particle"; //粒子效果
 import SweepLight from "@/directives/SweepLight"; //卡片扫光
 import Typewriter from "@/directives/Typewriter"; //打字机
+import textHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
 export default {
   name: "index",
   components: {
@@ -96,6 +97,7 @@ export default {
     Particle,
     SweepLight,
     Typewriter,
+    textHoverColor,
   },
   data() {
     return {
@@ -131,6 +133,7 @@ export default {
         { name: "渐变蒙版", is: "MaskGradient", type: "directive" },
         { name: "卡片扫光", is: "SweepLight", type: "directive" },
         { name: "打字机", is: "Typewriter", type: "directive" },
+        { name: "文字悬浮变色", is: "textHoverColor", type: "directive" },
       ],
       i: 0,
     };

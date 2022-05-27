@@ -307,7 +307,9 @@ const typewriterMultiple = {
 //#####··········文字悬浮变色··········#####//
 const textHoverColor = {
   inserted(el) {
+    // 需要给父盒子加相对定位或绝对定位
     const mask = document.createElement("div");
+    const line = document.createElement("div");
     mask.innerHTML = el.innerHTML;
     mask.style.cssText = `
     z-index: 9;
@@ -317,17 +319,34 @@ const textHoverColor = {
     color: transparent;
     background-color: #fff;
     transition: all 0.25s;
-    animation: light 3s infinite;
     -webkit-background-clip: text;
     clip-path: circle(75% at 50% 50%);
     `;
+    line.style.cssText = `
+    z-index: 9;
+    position: absolute;
+    width: 0%;
+    height: 10px;
+    bottom: 0;
+    color: transparent;
+    background-color: #2980b9;
+    transition: all 0.25s;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    `;
 
     el.appendChild(mask);
+    el.appendChild(line);
     el.addEventListener("mouseenter", () => {
       mask.style.clipPath = "circle(0% at 50% 50%)";
+      setTimeout(() => {
+        line.style.width = "100%";
+      }, 250);
     });
     el.addEventListener("mouseleave", () => {
       mask.style.clipPath = "circle(75% at 50% 50%)";
+      line.style.width = "0%";
     });
   },
 };
