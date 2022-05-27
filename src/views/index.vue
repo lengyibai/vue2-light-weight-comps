@@ -39,7 +39,7 @@ import Icon from "../components/common/static/lyb-icon/demo"; //图标
 import Loading from "../components/common/static/lyb-loading/demo"; //loading
 import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
 import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
-import LybSprites from "../components/common/static/lyb-sprites/demo"; //精灵图
+import FlexibleRem from "../components/common/static/lyb-flexible-rem/demo"; //flexible + rem布局
 import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
 import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
 import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
@@ -74,7 +74,7 @@ export default {
     Loading,
     LybIframe,
     LybMask,
-    LybSprites,
+    FlexibleRem,
     LybSvg,
     QrCode,
     Range,
@@ -116,7 +116,7 @@ export default {
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
         { name: "蒙版", is: "LybMask", type: "static" },
         { name: "iframe", is: "LybIframe", type: "static" },
-        { name: "精灵图", is: "LybSprites", type: "static" },
+        { name: "flexible + rem布局", is: "FlexibleRem", type: "static" },
 
         { name: "拖拽排序", is: "DragSort", type: "dynamic" },
         { name: "省市区", is: "SelectAddress", type: "dynamic" },

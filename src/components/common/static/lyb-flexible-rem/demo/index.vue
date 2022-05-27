@@ -1,8 +1,6 @@
 <template>
   <div class="demoFull flex">
-    <div class="flex">
-      <LybSprites :img="require('../img/sprites.png')" />尝试按下图标
-    </div>
+    <LybFlexibleRem />
   </div>
 </template>
 <script>

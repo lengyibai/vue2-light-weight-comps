@@ -41,15 +41,16 @@ export default {
       }
       this.updateHeight();
     }, 1000);
-    if (this.eqhMultiple === 0) return;
+    // 如果设置了 eqhMultiple ，则需要给插槽内的盒子设置类名 eqhMultiple
+    if (this.eqhMultiple <= 0) return;
     window.addEventListener(
       "resize",
       function () {
         requestAnimationFrame(
           function () {
-            const box = this.lybGrid.querySelectorAll(".box");
+            const box = this.lybGrid.querySelectorAll(".eqhMultiple");
             box.forEach((item) => {
-              item.style.height = item.offsetWidth / this.eqhMultiple + "px";
+              item.style.height = item.offsetWidth * this.eqhMultiple + "px";
             });
           }.bind(this),
         );
@@ -58,11 +59,11 @@ export default {
   },
   methods: {
     updateHeight() {
-      const box = this.lybGrid.querySelectorAll(".box");
+      const box = this.lybGrid.querySelectorAll(".eqhMultiple");
       box.forEach((item) => {
         //只对新加的盒子设置高度
         if (item.offsetHeight) return;
-        item.style.height = item.offsetWidth / this.eqhMultiple + "px";
+        item.style.height = item.offsetWidth * this.eqhMultiple + "px";
       });
     },
   },
