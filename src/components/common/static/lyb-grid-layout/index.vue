@@ -32,10 +32,7 @@ export default {
   mounted() {
     this.lybGrid = this.$refs.lybGrid;
     let timer = setInterval(() => {
-      if (
-        this.eqhMultiple > 0 &&
-        this.lybGrid.querySelectorAll(".eqhMultiple")[0]
-      ) {
+      if (this.eqhMultiple > 0 && this.$slots.default.length) {
         this.updateHeight();
         clearInterval(timer);
         return;
@@ -48,18 +45,19 @@ export default {
   },
   methods: {
     updateHeight() {
-      const box = this.lybGrid.querySelectorAll(".eqhMultiple");
+      const box = this.$slots.default;
       box.forEach((item) => {
-        item.style.height = item.scrollWidth * this.eqhMultiple + "px";
+        item.elm.style.height = item.elm.scrollWidth * this.eqhMultiple + "px";
       });
       window.addEventListener(
         "resize",
         function () {
           requestAnimationFrame(
             function () {
-              const box = this.lybGrid.querySelectorAll(".eqhMultiple");
+              const box = this.$slots.default;
               box.forEach((item) => {
-                item.style.height = item.offsetWidth * this.eqhMultiple + "px";
+                item.elm.style.height =
+                  item.elm.offsetWidth * this.eqhMultiple + "px";
               });
             }.bind(this),
           );
