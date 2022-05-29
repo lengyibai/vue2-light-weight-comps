@@ -192,7 +192,6 @@ export default {
     overflow: hidden;
     .box {
       height: 100%;
-      transition: all 0.5s;
       padding: 25px;
       overflow: auto;
     }

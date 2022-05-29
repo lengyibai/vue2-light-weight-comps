@@ -347,9 +347,7 @@ const textHoverColor = {
     el.appendChild(line);
     el.addEventListener("mouseenter", () => {
       mask.style.clipPath = "circle(0% at 50% 50%)";
-      setTimeout(() => {
-        line.style.width = "100%";
-      }, 175);
+      line.style.width = "100%";
     });
     el.addEventListener("mouseleave", () => {
       mask.style.clipPath = "circle(75% at 50% 50%)";

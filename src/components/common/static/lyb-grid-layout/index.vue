@@ -24,9 +24,6 @@ export default {
     },
   },
   name: "lyb-grid",
-  // updated() {
-  //   this.updateHeight();
-  // },
   data() {
     return {
       lybGrid: null,
@@ -35,36 +32,39 @@ export default {
   mounted() {
     this.lybGrid = this.$refs.lybGrid;
     let timer = setInterval(() => {
-      if (this.lybGrid.querySelectorAll(".box")[0]?.offsetHeight) {
+      if (
+        this.eqhMultiple > 0 &&
+        this.lybGrid.querySelectorAll(".eqhMultiple")[0]
+      ) {
+        this.updateHeight();
         clearInterval(timer);
         return;
       }
-      this.updateHeight();
     }, 1000);
-    // 如果设置了 eqhMultiple ，则需要给插槽内的盒子设置类名 eqhMultiple
-    if (this.eqhMultiple <= 0) return;
-    window.addEventListener(
-      "resize",
-      function () {
-        requestAnimationFrame(
-          function () {
-            const box = this.lybGrid.querySelectorAll(".eqhMultiple");
-            box.forEach((item) => {
-              item.style.height = item.offsetWidth * this.eqhMultiple + "px";
-            });
-          }.bind(this),
-        );
-      }.bind(this),
-    );
+    // 3秒后还未获取到插槽元素，则取消获取
+    setTimeout(() => {
+      clearInterval(timer);
+    }, 3000);
   },
   methods: {
     updateHeight() {
       const box = this.lybGrid.querySelectorAll(".eqhMultiple");
       box.forEach((item) => {
-        //只对新加的盒子设置高度
-        if (item.offsetHeight) return;
-        item.style.height = item.offsetWidth * this.eqhMultiple + "px";
+        item.style.height = item.scrollWidth * this.eqhMultiple + "px";
       });
+      window.addEventListener(
+        "resize",
+        function () {
+          requestAnimationFrame(
+            function () {
+              const box = this.lybGrid.querySelectorAll(".eqhMultiple");
+              box.forEach((item) => {
+                item.style.height = item.offsetWidth * this.eqhMultiple + "px";
+              });
+            }.bind(this),
+          );
+        }.bind(this),
+      );
     },
   },
 };
