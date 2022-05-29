@@ -30,7 +30,9 @@
 <script>
 import Elevator from "./childComp/Elevator.vue";
 import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
+import FlexibleRem from "../components/common/static/lyb-flexible-rem/demo"; //flexible + rem布局
 import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
+import FullScroll from "../components/common/static/lyb-full-scroll/demo"; // 全屏滚动
 import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
 import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
 import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
@@ -38,7 +40,6 @@ import Icon from "../components/common/static/lyb-icon/demo"; //图标
 import Loading from "../components/common/static/lyb-loading/demo"; //loading
 import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
 import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
-import FlexibleRem from "../components/common/static/lyb-flexible-rem/demo"; //flexible + rem布局
 import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
 import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
 import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
@@ -59,14 +60,17 @@ import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
 import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
 import Particle from "@/directives/Particle"; //粒子效果
 import SweepLight from "@/directives/SweepLight"; //卡片扫光
-import Typewriter from "@/directives/Typewriter"; //打字机
-import textHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
+import TextHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
+import TypewriterMultiple from "@/directives/TypewriterMultiple"; //多行打字机
+import TypewriterSingle from "@/directives/TypewriterSingle"; //单行打字机
 export default {
   name: "index",
   components: {
     Elevator,
     Echarts,
+    FlexibleRem,
     FlipBox,
+    FullScroll,
     GridLayout,
     GridLetter,
     GridNumber,
@@ -74,7 +78,6 @@ export default {
     Loading,
     LybIframe,
     LybMask,
-    FlexibleRem,
     LybSvg,
     QrCode,
     Range,
@@ -95,56 +98,53 @@ export default {
     ParallaxVideo,
     Particle,
     SweepLight,
-    Typewriter,
-    textHoverColor,
+    TextHoverColor,
+    TypewriterMultiple,
+    TypewriterSingle,
   },
   data() {
     return {
       components: [
         { name: "Echarts图表", is: "Echarts", type: "static" },
-        { name: "卡片翻转", is: "FlipBox", type: "static" },
-        { name: "图标", is: "Icon", type: "static" },
-        { name: "SVG图标", is: "LybSvg", type: "static" },
-        { name: "loading", is: "Loading", type: "static" },
-        { name: "生成二维码", is: "QrCode", type: "static" },
-        { name: "滑动选择器", is: "Range", type: "static" },
-        { name: "移动端滚动插件", is: "Scroll", type: "static" },
-        { name: "swiper轮播图", is: "Swipe", type: "static" },
-        { name: "表格", is: "Table", type: "static" },
-        { name: "视频播放器", is: "Video", type: "static" },
-        { name: "Grid特色布局", is: "GridLayout", type: "static" },
-        { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
-        { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
-        { name: "蒙版", is: "LybMask", type: "static" },
-        { name: "iframe", is: "LybIframe", type: "static" },
         { name: "flexible + rem布局", is: "FlexibleRem", type: "static" },
+        { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
+        { name: "Grid特色布局", is: "GridLayout", type: "static" },
+        { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
+        { name: "iframe", is: "LybIframe", type: "static" },
+        { name: "loading", is: "Loading", type: "static" },
+        { name: "SVG变色图标", is: "LybSvg", type: "static" },
+        { name: "Swiper轮播图", is: "Swipe", type: "static" },
+        { name: "表格", is: "Table", type: "static" },
+        { name: "滑动选择器", is: "Range", type: "static" },
+        { name: "卡片翻转", is: "FlipBox", type: "static" },
+        { name: "蒙版", is: "LybMask", type: "static" },
+        { name: "全屏滚动", is: "FullScroll", type: "static" },
+        { name: "生成二维码", is: "QrCode", type: "static" },
+        { name: "视频播放器", is: "Video", type: "static" },
+        { name: "图标", is: "Icon", type: "static" },
+        { name: "移动端滚动插件", is: "Scroll", type: "static" },
 
-        { name: "拖拽排序", is: "DragSort", type: "dynamic" },
-        { name: "省市区", is: "SelectAddress", type: "dynamic" },
-        { name: "文件上传", is: "UploadFile", type: "dynamic" },
-        { name: "图片上传", is: "UploadImg", type: "dynamic" },
-        { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
         { name: "富文本", is: "RichText", type: "dynamic" },
+        { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
+        { name: "省市区", is: "SelectAddress", type: "dynamic" },
+        { name: "图片上传", is: "UploadImg", type: "dynamic" },
+        { name: "拖拽排序", is: "DragSort", type: "dynamic" },
+        { name: "文件上传", is: "UploadFile", type: "dynamic" },
 
-        { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
-        { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
-        { name: "粒子效果", is: "Particle", type: "directive" },
+        { name: "打字机(单行)", is: "TypewriterSingle", type: "directive" },
+        { name: "打字机(多行)", is: "TypewriterMultiple", type: "directive" },
         { name: "渐变蒙版", is: "MaskGradient", type: "directive" },
         { name: "卡片扫光", is: "SweepLight", type: "directive" },
-        { name: "打字机", is: "Typewriter", type: "directive" },
-        { name: "文字悬浮变色", is: "textHoverColor", type: "directive" },
+        { name: "粒子效果", is: "Particle", type: "directive" },
+        { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
+        { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
+        { name: "文字悬浮变色", is: "TextHoverColor", type: "directive" },
       ],
       i: 0,
     };
   },
   methods: {
-    //#####··········基础结构··········#####//
-    //####········滚动一页结束触发········####//
-    endScroll(i) {
-      this.i = i;
-    },
-
-    //####········点击触发········####//
+    //#####········点击触发········#####//
     change(i) {
       this.i = i;
     },

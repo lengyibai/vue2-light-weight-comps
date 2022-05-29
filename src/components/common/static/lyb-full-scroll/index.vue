@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    value: {
+    page: {
       type: Number,
       default: 0,
     },
@@ -33,15 +33,12 @@ export default {
     };
   },
   watch: {
-    value: {
+    page: {
       handler(v) {
-        this.change(v);
+        this.change(v - 1);
       },
       immediate: true,
     },
-  },
-  created() {
-    this.i = this.value;
   },
   mounted() {
     const father = this.$refs.LybFullScroll;
@@ -74,7 +71,7 @@ export default {
     father.addEventListener("mousewheel", fn);
     window.addEventListener("resize", () => {
       father.style.transition = "all 0s";
-      this.change(this.value);
+      this.change(this.page);
     });
   },
   methods: {
@@ -103,6 +100,7 @@ export default {
       }
     },
     change(i) {
+      if (i === -1) i = 0;
       this.$nextTick(() => {
         const father = this.$refs.LybFullScroll;
         this.i = i;

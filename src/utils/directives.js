@@ -206,7 +206,7 @@ const sweepLight = {
   },
 };
 
-//#####··········打字机··········#####//
+//#####··········单行打字机··········#####//
 const typewriterSingle = {
   inserted(el) {
     let lyb = el;
@@ -256,13 +256,13 @@ const typewriterSingle = {
             }, 100);
           }, 2000);
         }
-      }, 100);
+      }, 150);
     }
     again();
   },
 };
 
-// //#####··········打字机··········#####//
+// //#####··········多行打字机··········#####//
 const typewriterMultiple = {
   inserted(el) {
     let say = el.innerHTML;
@@ -298,7 +298,7 @@ const typewriterMultiple = {
             //如果文字输出完毕
             clearInterval(timer); //清除用于输出文字的计时器
           }
-        }, 100);
+        }, 150);
       }
     }, 750);
   },

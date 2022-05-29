@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="demoFull flex">
     <LybFullScroll direction="y">
       <div class="scroll-item" v-for="(item, index) in 10" :key="index">
         {{ item }}
@@ -15,11 +15,8 @@ export default {
 };
 </script>
 <style scoped lang="less">
-.demo {
-  width: 100vw;
-  height: 100vh;
+.demoFull {
   overflow: hidden;
-  background-color: #000;
   .scroll-item {
     display: flex;
     justify-content: center;
