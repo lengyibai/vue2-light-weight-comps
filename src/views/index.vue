@@ -14,17 +14,16 @@
       </div>
     </div>
     <div class="FullScroll">
-      <LybFullScroll direction="x" @end-scroll="endScroll" v-model="i">
-        <!-- Echarts图表 -->
-        <div
-          class="scroll-item"
-          :class="{ opacity: i === index }"
-          v-for="(item, index) in components"
-          :key="index"
-        >
+      <div
+        class="box"
+        v-for="(item, index) in components"
+        v-show="i === index"
+        :key="index"
+      >
+        <div is="transition" name="fade">
           <div v-if="i === index" :is="item.is"></div>
         </div>
-      </LybFullScroll>
+      </div>
     </div>
   </div>
 </template>
@@ -189,12 +188,13 @@ export default {
   .FullScroll {
     position: relative;
     flex: 1;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
-    .scroll-item {
-      opacity: 0;
+    .box {
+      height: 100%;
       transition: all 0.5s;
       padding: 25px;
+      overflow: auto;
     }
   }
 }
@@ -202,8 +202,15 @@ export default {
 .bg-white {
   background-color: #fff;
 }
+/* 进入前状态 */
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
 
-.opacity {
-  opacity: 1 !important;
+/* 进入和离开动画属性 */
+.fade-leave-active,
+.fade-enter-active {
+  transition: all 0.5s;
 }
 </style>
