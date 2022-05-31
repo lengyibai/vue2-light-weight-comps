@@ -1,22 +1,16 @@
 <template>
   <div class="demoFull flex">
-    <div class="btn" v-particle="{ size: 50 }">冷弋白</div>
+    <BtnLogin v-particle />
   </div>
 </template>
 <script>
+import BtnLogin from "./BtnLogin";
 export default {
   name: "Particle",
   data() {
     return {};
   },
-  components: {},
+  components: { BtnLogin },
   methods: {},
 };
 </script>
-<style scoped lang="less">
-.btn {
-  position: relative;
-  font-size: 10vw;
-  font-weight: lighter;
-}
-</style>
