@@ -30,7 +30,6 @@
 <script>
 import Elevator from "./childComp/Elevator.vue";
 import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
-import FlexibleRem from "../components/common/static/lyb-flexible-rem/demo"; //flexible + rem布局
 import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
 import FullScroll from "../components/common/static/lyb-full-scroll/demo"; // 全屏滚动
 import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
@@ -59,6 +58,8 @@ import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
 import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
 import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
 import Particle from "@/directives/Particle"; //粒子效果
+import SakuraFalling from "@/directives/SakuraFalling"; //樱花飘落
+import SnowFalling from "@/directives/SnowFalling"; //雪花飘落
 import SweepLight from "@/directives/SweepLight"; //卡片扫光
 import TextHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
 import TypewriterMultiple from "@/directives/TypewriterMultiple"; //多行打字机
@@ -68,7 +69,6 @@ export default {
   components: {
     Elevator,
     Echarts,
-    FlexibleRem,
     FlipBox,
     FullScroll,
     GridLayout,
@@ -97,6 +97,8 @@ export default {
     ParallaxImg,
     ParallaxVideo,
     Particle,
+    SakuraFalling,
+    SnowFalling,
     SweepLight,
     TextHoverColor,
     TypewriterMultiple,
@@ -106,7 +108,6 @@ export default {
     return {
       components: [
         { name: "Echarts图表", is: "Echarts", type: "static" },
-        { name: "flexible + rem布局", is: "FlexibleRem", type: "static" },
         { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
         { name: "Grid特色布局", is: "GridLayout", type: "static" },
         { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
@@ -139,6 +140,8 @@ export default {
         { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
         { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
         { name: "文字悬浮变色", is: "TextHoverColor", type: "directive" },
+        { name: "樱花飘落", is: "SakuraFalling", type: "directive" },
+        { name: "雪花飘落", is: "SnowFalling", type: "directive" },
       ],
       i: 0,
     };

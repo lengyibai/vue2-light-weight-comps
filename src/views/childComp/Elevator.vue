@@ -5,6 +5,7 @@
       :class="{
         activeStatic: currentIndex === index && item.type === 'static',
         activeDynamic: currentIndex === index && item.type === 'dynamic',
+        activeDirective: currentIndex === index && item.type === 'directive',
         static: item.type === 'static',
         dynamic: item.type === 'dynamic',
         directive: item.type === 'directive',
@@ -78,6 +79,9 @@ export default {
 }
 .activeDynamic {
   background-color: #2980b9;
+}
+.activeDirective {
+  background-color: #f39c12;
 }
 .static {
   border-color: #27ae60 !important;

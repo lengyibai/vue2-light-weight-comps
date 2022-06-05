@@ -356,6 +356,150 @@ const textHoverColor = {
   },
 };
 
+//#####··········樱花飘落··········#####//
+const sakuraFalling = {
+  inserted(el) {
+    function $random(min, max, num = 0) {
+      return parseFloat((Math.random() * (max - min) + min).toFixed(num));
+    }
+
+    document.styleSheets[0].insertRule(
+      `
+      @keyframes LybSakuraFalling {
+        100% {
+          transform: translateX(var(--right)) translateY(calc(100vh + 10px)) rotate(0);
+        }
+      }
+      `,
+      1, //代表插入索引位置，一般直接 document.styleSheets[0].length
+    );
+
+    const lyb = el;
+    let particle = [];
+    for (let i = 0; i < 100; i++) {
+      particle.push('<div class="particle"></div>');
+    }
+
+    function update() {
+      lyb.innerHTML = "";
+      lyb.innerHTML = particle.join(" "); //join转换成字符串
+      const particles = lyb.querySelectorAll(".particle");
+      let right, top;
+      particles.forEach((item) => {
+        item.style.cssText = `
+        --right: 100vw;
+        --top: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        animation: LybSakuraFalling 5s infinite linear;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        pointer-events: none;
+        `;
+        item.style.backgroundImage =
+          "url(" + require("./img/" + $random(0, 4) + ".png") + ")";
+        top = $random(0, document.documentElement.offsetHeight / 2);
+        right = $random(0, document.documentElement.offsetWidth);
+
+        if ($random(0, 2) <= 1) {
+          item.style.transform = `translateX(${-right}px) translateY(-200%) rotate(${$random(
+            0,
+            360,
+          )}deg)`;
+          item.style.setProperty(
+            "--right",
+            $random(-right, -document.documentElement.offsetWidth - right) +
+              "px",
+          );
+        } else {
+          item.style.transform = `translateX(100%) translateY(${top}px) rotate(${$random(
+            0,
+            360,
+          )}deg)`;
+          item.style.setProperty(
+            "--right",
+            $random(-right, -document.documentElement.offsetWidth + right) +
+              "px",
+          );
+        }
+        // item.style.setProperty('--time', $random(3, 5, 1) + 's');
+        item.style.animationDelay = $random(0, 10, 1) + "s";
+      });
+    }
+    window.addEventListener("resize", function () {
+      update();
+    });
+    update();
+  },
+};
+
+//#####··········雪花飘落··········#####//
+const snowFalling = {
+  inserted(el) {
+    function $random(min, max, num = 0) {
+      return parseFloat((Math.random() * (max - min) + min).toFixed(num));
+    }
+
+    document.styleSheets[0].insertRule(
+      `
+      @keyframes LybSnowFalling {
+        100% {
+          transform: translateX(var(--left)) translateY(calc(100vh + 10px));
+        }
+      }
+      `,
+      1, //代表插入索引位置，一般直接 document.styleSheets[0].length
+    );
+
+    const lyb = el;
+    let particle = [];
+
+    for (let i = 0; i < document.documentElement.offsetWidth / 15; i++) {
+      particle.push('<div class="particle"></div>');
+    }
+
+    function update() {
+      lyb.innerHTML = "";
+      lyb.innerHTML = particle.join(" "); //join转换成字符串
+      const particles = lyb.querySelectorAll(".particle");
+      let left, size;
+      particles.forEach((item) => {
+        size = $random(100, 200);
+        item.style.cssText = `
+        --left: 0;
+        --top: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: ${document.documentElement.offsetWidth / size}px;
+        height: ${document.documentElement.offsetWidth / size}px;
+        animation: LybSnowFalling var(--time) infinite linear;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        pointer-events: none;
+        background-color: #fff;
+        border-radius: 50%;
+        `;
+        left = $random(0, document.documentElement.offsetWidth);
+
+        item.style.transform = `translateX(${left}px) translateY(-200%)`;
+        item.style.setProperty("--left", left + "px");
+        item.style.setProperty("--time", $random(3, 5, 1) + "s");
+        item.style.animationDelay = $random(0, 10, 1) + "s";
+      });
+    }
+    window.addEventListener("resize", function () {
+      update();
+    });
+    update();
+  },
+};
+
 let directives = {
   parallaxBg,
   particle,
@@ -364,6 +508,8 @@ let directives = {
   typewriterMultiple,
   typewriterSingle,
   textHoverColor,
+  sakuraFalling,
+  snowFalling,
 };
 export default {
   install(Vue) {
