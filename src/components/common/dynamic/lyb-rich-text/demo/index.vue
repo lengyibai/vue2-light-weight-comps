@@ -3,7 +3,6 @@
     <div class="LybRichText">
       <LybRichText v-model="content" />
     </div>
-    <p class="content" v-html="content"></p>
   </div>
 </template>
 <script>
@@ -27,10 +26,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
   .LybRichText {
-    width: 75%;
-    height: 35%;
-    color: #fff;
+    height: 100% !important;
   }
   .content {
     margin-top: 50px;
