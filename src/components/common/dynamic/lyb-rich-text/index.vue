@@ -120,15 +120,19 @@ export default {
 }
 .ql-snow.ql-toolbar button,
 .ql-snow .ql-toolbar button {
-  display: flex;
-  align-items: center;
   width: fit-content;
-  font-weight: bold;
-  color: #444;
 }
 
 .ql-snow .ql-picker-label {
   display: flex;
+}
+
+.ql-snow .ql-color-picker .ql-picker-label svg,
+.ql-snow .ql-icon-picker .ql-picker-label svg {
+  width: 18px;
+}
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 10px;
 }
 </style>
 <style scoped>
