@@ -118,6 +118,7 @@ export default {
 .ql-editor {
   height: 500px;
 }
+
 .ql-snow.ql-toolbar button,
 .ql-snow .ql-toolbar button {
   width: fit-content;
@@ -131,8 +132,14 @@ export default {
 .ql-snow .ql-icon-picker .ql-picker-label svg {
   width: 18px;
 }
-.ql-toolbar.ql-snow .ql-formats {
+
+.ql-snow .ql-formats {
   margin-right: 10px;
+}
+.ql-snow .ql-tooltip {
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%);
 }
 </style>
 <style scoped>
