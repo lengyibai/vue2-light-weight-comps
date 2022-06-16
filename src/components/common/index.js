@@ -18,6 +18,7 @@ import LybIframe from "./static/lyb-iframe"; //iframe
 import LybGrid from "./static/lyb-grid-layout"; //视频播放器
 import LybGridLetter from "./static/lyb-grid-letter"; //视频播放器
 import LybGridNumber from "./static/lyb-grid-number"; //视频播放器
+import LybCircularProgress from "./static/lyb-circular-progress"; //环形进度条
 
 //#####··········动态··········#####//
 import LybRichText from "./dynamic/lyb-rich-text"; //富文本框
@@ -50,6 +51,7 @@ const components = [
   LybTable,
   LybTableColumn,
   LybVideo,
+  LybCircularProgress,
   /* 动态 */
   LybDragSort,
   LybRichText,

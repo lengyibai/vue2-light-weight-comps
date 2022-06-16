@@ -46,6 +46,7 @@ import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚
 import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
 import Table from "../components/common/static/lyb-table/demo"; //表格
 import Video from "../components/common/static/lyb-video/demo"; //视频播放器
+import CircularProgress from "../components/common/static/lyb-circular-progress/demo"; //视频播放器
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
 import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
@@ -85,6 +86,7 @@ export default {
     Swipe,
     Table,
     Video,
+    CircularProgress,
 
     DragSort,
     RichText,
@@ -124,6 +126,7 @@ export default {
         { name: "视频播放器", is: "Video", type: "static" },
         { name: "图标", is: "Icon", type: "static" },
         { name: "移动端滚动插件", is: "Scroll", type: "static" },
+        { name: "环形进度条", is: "CircularProgress", type: "static" },
 
         { name: "富文本", is: "RichText", type: "dynamic" },
         { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
