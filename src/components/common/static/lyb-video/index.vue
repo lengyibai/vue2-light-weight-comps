@@ -7,11 +7,7 @@
     @mouseleave="show_toolbar = false"
     @click="playPause"
   >
-    <video
-      ref="video"
-      src="http://lengyibai.gitee.io/vue2-light-weight-comps/src/assets/video/video.mp4"
-      :muted="is_mute"
-    ></video>
+    <video ref="video" :src="url" :muted="is_mute"></video>
     <!-- 播放栏目 -->
     <transition name="fade">
       <div class="toolbar" :class="{ hidden: !show_toolbar }">
@@ -103,6 +99,12 @@
 <script>
 import LybRange from "./childComp/lyb-range";
 export default {
+  props: {
+    url: {
+      type: String,
+      default: "",
+    },
+  },
   name: "LybVideo",
   data() {
     return {

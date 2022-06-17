@@ -1,7 +1,7 @@
 <template>
   <div class="demoFull flex">
     <div class="LybVideo">
-      <LybVideo />
+      <LybVideo :url="require('./video/video.mp4')" />
     </div>
   </div>
 </template>
