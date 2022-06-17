@@ -52,7 +52,6 @@ export default {
   watch: {
     value: {
       handler(v) {
-        this.deg = 0;
         if (v === "") {
           this.num = 0;
         } else if (v > 100) {
@@ -80,8 +79,13 @@ export default {
         ${this.lineColor} ${this.deg * 3.6}deg,
         ${this.lineBgc} ${this.deg * 3.6}deg 0deg
       )`;
-      if (this.deg >= this.num) return;
-      this.deg += 1;
+      if (this.deg < this.num) {
+        this.deg += 1;
+      } else if (this.deg > this.num) {
+        this.deg -= 1;
+      } else {
+        return;
+      }
       requestAnimationFrame(this.fn);
     },
   },
