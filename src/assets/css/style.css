@@ -32,3 +32,10 @@
   transition: all 0.1s;
   transform: translateY(10px) scale(0.99);
 }
+
+input[type="text"]{
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 5px;
+}

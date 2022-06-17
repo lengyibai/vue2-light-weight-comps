@@ -1,6 +1,7 @@
 <template>
   <div class="demoFull flex">
     <div class="lyb bgImg" v-maskGradient>
+      <img src="http://lengyibai.gitee.io/img-bed/img/lyb.png" alt="" />
       <span>这里是冷弋(yi)白</span>
     </div>
   </div>
@@ -20,6 +21,11 @@ export default {
   .lyb {
     width: clamp(0px, 25vw, 90vh);
     height: clamp(0px, 25vw, 90vh);
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
     span {
       position: absolute;
       width: 100%;
