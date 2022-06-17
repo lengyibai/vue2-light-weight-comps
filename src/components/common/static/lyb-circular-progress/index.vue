@@ -81,7 +81,7 @@ export default {
         ${this.lineBgc} ${this.deg * 3.6}deg 0deg
       )`;
       if (this.deg >= this.num) return;
-      this.deg += 0.1;
+      this.deg += 1;
       requestAnimationFrame(this.fn);
     },
   },
