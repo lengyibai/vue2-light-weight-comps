@@ -1,6 +1,8 @@
 <template>
   <div class="LybCircularProgress" ref="circular">
-    <span class="num">{{ Math.floor(deg) }}%</span>
+    <span class="num" :style="{ fontSize: fontSize, color: fontColor }"
+      >{{ Math.floor(deg) }}%</span
+    >
   </div>
 </template>
 <script>
@@ -9,6 +11,34 @@ export default {
     value: {
       type: [Number, String],
       default: 75,
+    },
+    lineColor: {
+      type: String,
+      default: "",
+    },
+    lineBgc: {
+      type: String,
+      default: "",
+    },
+    bgColor: {
+      type: String,
+      default: "#000",
+    },
+    fontSize: {
+      type: String,
+      default: "",
+    },
+    fontColor: {
+      type: String,
+      default: "",
+    },
+    size: {
+      type: String,
+      default: "",
+    },
+    thick: {
+      type: String,
+      default: "",
     },
   },
   name: "LybCircularProgress",
@@ -37,15 +67,21 @@ export default {
       immediate: true,
     },
   },
-  mounted() {},
+  mounted() {
+    let a = document.querySelector(".LybCircularProgress");
+    a.style.setProperty("--bg", this.bgColor);
+    a.style.setProperty("--size", this.size);
+    a.style.setProperty("--thick", this.thick);
+    a.style.fontSize = this.fontSize;
+  },
   methods: {
     fn() {
       this.$refs.circular.style.background = `conic-gradient(
-        #1c8bde ${this.deg * 3.6}deg,
-        #aaa ${this.deg * 3.6}deg 0deg
+        ${this.lineColor} ${this.deg * 3.6}deg,
+        ${this.lineBgc} ${this.deg * 3.6}deg 0deg
       )`;
       if (this.deg >= this.num) return;
-      this.deg += 1;
+      this.deg += 0.1;
       requestAnimationFrame(this.fn);
     },
   },
@@ -59,24 +95,23 @@ export default {
   border-radius: 50%;
 }
 .LybCircularProgress {
+  --bg: #000;
+  --size: 300px;
+  --thick: 25px;
   .flex();
   position: relative;
-  width: 300px;
-  height: 300px;
-  background-color: #ccc;
+  width: var(--size);
+  height: var(--size);
   &::after {
     .flex();
     content: "";
     position: absolute;
-    width: 275px;
-    height: 275px;
-    background-color: #1a1c25;
-    font-size: 50px;
+    width: calc(var(--size) - var(--thick));
+    height: calc(var(--size) - var(--thick));
+    background-color: var(--bg);
   }
   .num {
     z-index: 1;
-    font-size: 50px;
-    color: #fff;
   }
 }
 </style>
