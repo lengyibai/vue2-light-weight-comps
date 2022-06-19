@@ -93,8 +93,8 @@ export default {
     align-items: center;
     cursor: pointer;
     img {
-      width: 75%;
-      height: 75%;
+      width: 50%;
+      height: 50%;
     }
   }
 }
