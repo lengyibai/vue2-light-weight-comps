@@ -25,6 +25,7 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 // import { upload } from "@/api/index.js"; //图片上传接口
+// import { $imageOptimizer } from "./js/imageOptimizer.js";
 export default {
   props: {
     disabled: {
@@ -109,6 +110,26 @@ export default {
       //   quill.insertEmbed(length, "image", res.data.data.src);
       //   // 调整光标到最后
       //   quill.setSelection(length + 1);
+      // });
+
+      /* 以下支持图片压缩 */
+      // $imageOptimizer({
+      //   file: f,
+      //   ratio: 0.5, //压缩率
+      //   maxsize: 1024, //超过多大进行压缩
+      //   /* 成功回调 */
+      //   success: (data, file, url) => {
+      //     upload(data).then((res) => {
+      //       // 获取富文本组件实例
+      //       let quill = this.$refs.myQuillEditor.quill;
+      //       // 获取光标所在位置
+      //       let length = quill.getSelection().index;
+      //       // 插入图片，res.resultMsg 为服务器返回的图片链接地址
+      //       quill.insertEmbed(length, "image", res.data.data.src);
+      //       // 调整光标到最后
+      //       quill.setSelection(length + 1);
+      //     });
+      //   },
       // });
     },
   },
