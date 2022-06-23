@@ -7,8 +7,7 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 //#####··········个人··········#####//
 //####········个人组件
-import lybUI from "@/components/common/index.js";
-Vue.use(lybUI);
+import "@/components/common/index.js";
 //####        自定义指令
 import directives from "@/utils/directives.js";
 Vue.use(directives);

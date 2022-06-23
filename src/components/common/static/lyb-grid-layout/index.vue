@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lyb-grid"
+    class="LybGridLayout"
     ref="lybGrid"
     :style="{ gridTemplateColumns: 'repeat(' + count + ', 1fr)', gridGap: gap }"
   >
@@ -23,7 +23,7 @@ export default {
       default: 0,
     },
   },
-  name: "lyb-grid",
+  name: "LybGridLayout",
   data() {
     return {
       lybGrid: null,
@@ -68,7 +68,7 @@ export default {
 };
 </script>
 <style scoped lang="less">
-.lyb-grid {
+.LybGridLayout {
   width: 100%;
   height: 100%;
   display: grid;
