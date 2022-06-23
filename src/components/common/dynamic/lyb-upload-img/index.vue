@@ -40,7 +40,7 @@ export default {
         );
         this.$emit(
           "input",
-          "来这里改成后端文件链接地址字段，如res.data.data.src",
+          "把我改成后端文件链接地址字段，如res.data.data.src",
         );
       });
     },

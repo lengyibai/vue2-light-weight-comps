@@ -1,14 +1,15 @@
 <template>
   <div class="demo demoFull flex">
-    <h1>Element UI文件上传接口，只能上传png格式</h1>
+    <h1></h1>
     <!-- 单文件上传 -->
     <div class="box flex">
+      <!--//%%%%%··········已在 vue.config.js 做了跨域代理，所以为/upload··········%%%%%//-->
       <LybUploadSingle
         :fileUrl.sync="single.fileUrl"
         @finish="LybUploadSingleFinish"
         fileName="冷弋白"
         id="a"
-        url="https://jsonplaceholder.typicode.com/posts"
+        url="/upload"
         v-if="single.isShow || single.fileUrl"
       />
       <span v-else>暂无图片</span>
@@ -20,11 +21,13 @@
         :files.sync="multiple.files"
         @finish="LybUploadMultipleFinish"
         id="b"
-        url="https://jsonplaceholder.typicode.com/posts"
+        url="/upload"
         v-if="multiple.isShow || multiple.files.length"
       />
       <span v-else>暂无图片</span>
-      <span>{{ this.multiple.files }}</span>
+      <p v-for="(item, index) in this.multiple.files" :key="index">
+        {{ item }}
+      </p>
     </div>
   </div>
 </template>

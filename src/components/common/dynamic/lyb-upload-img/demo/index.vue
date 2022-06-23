@@ -1,14 +1,20 @@
 <template>
   <div class="demoFull flex">
-    <LybUploadImg url="https://jsonplaceholder.typicode.com/posts" />
+    <LybUploadImg url="/upload" v-model="img_url" />
   </div>
 </template>
 <script>
 export default {
   name: "demo",
   data() {
-    return {};
+    return {
+      img_url: "",
+    };
   },
-  methods: {},
+  watch: {
+    img_url(v) {
+      console.log(v);
+    },
+  },
 };
 </script>

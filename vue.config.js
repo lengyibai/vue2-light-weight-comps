@@ -4,7 +4,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       "/upload": {
-        target: "http://125.70.9.252:8089",
+        target: "https://s4.aconvert.com/convert/tools4.php",
         changeOrigin: true,
         pathRewrite: {
           "^/upload": "",

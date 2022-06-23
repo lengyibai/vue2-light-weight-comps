@@ -247,6 +247,8 @@
 .swiper-rtl .swiper-button-prev:after {
   content: 'next';
 } */
+.swiper-button-prev:after,
+.swiper-button-next:after,
 .swiper-button-lock {
   display: none;
 }
