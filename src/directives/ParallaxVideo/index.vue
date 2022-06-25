@@ -1,6 +1,6 @@
 <template>
   <div class="ParallaxVideo">
-    <video v-parallaxBg autoplay src="./video/bg.mp4" loop></video>
+    <video v-parallaxBg autoplay src="./video/bg.mp4" loop muted></video>
   </div>
 </template>
 <script>
