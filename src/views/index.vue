@@ -66,6 +66,7 @@ import SweepLight from "@/directives/SweepLight"; //卡片扫光
 import TextHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
 import TypewriterMultiple from "@/directives/TypewriterMultiple"; //多行打字机
 import TypewriterSingle from "@/directives/TypewriterSingle"; //单行打字机
+import ImageOptimizer from "@/directives/ImageOptimizer"; //单行打字机
 export default {
   name: "index",
   components: {
@@ -107,6 +108,7 @@ export default {
     TextHoverColor,
     TypewriterMultiple,
     TypewriterSingle,
+    ImageOptimizer,
   },
   data() {
     return {
@@ -148,6 +150,7 @@ export default {
         { is: "TextHoverColor", name: "文字悬浮变色", type: "directive" },
         { is: "TypewriterMultiple", name: "打字机(多行)", type: "directive" },
         { is: "TypewriterSingle", name: "打字机(单行)", type: "directive" },
+        { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
       ],
       i: 0,
     };
