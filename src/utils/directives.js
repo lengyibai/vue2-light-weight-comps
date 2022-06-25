@@ -585,7 +585,7 @@ const imageOptimizer = {
                   let dataUrl = canvas.toDataURL("image/jpeg", ratio);
                   Blobs = dataUrl;
                   let file = dataURLtoFile(Blobs, name);
-                  obj.success(formData(file), file, Blobs);
+                  obj.success(formData(file), file, Blobs, obj.el.files[0]);
                   c2.remove();
                 },
                 (e) => {
@@ -594,7 +594,7 @@ const imageOptimizer = {
               );
             } else {
               let file = dataURLtoFile(result, name);
-              obj.success(formData(file), file, result);
+              obj.success(formData(file), file, result, obj.el.files[0]);
               c2.remove();
             }
           },
