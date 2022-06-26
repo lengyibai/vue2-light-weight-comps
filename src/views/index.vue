@@ -71,6 +71,7 @@ import DownDrag from "@/directives/DownDrag"; //按下拖动
 import WaveDiffuse from "@/directives/WaveDiffuse"; //水波扩散
 import TableLayout from "@/directives/TableLayout"; //表格布局对齐方式
 import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
+import ModifyText from "@/directives/ModifyText"; //元素可编辑
 export default {
   name: "index",
   components: {
@@ -117,6 +118,7 @@ export default {
     WaveDiffuse,
     TableLayout,
     EqualRatio,
+    ModifyText,
   },
   data() {
     return {
@@ -163,6 +165,7 @@ export default {
         { is: "WaveDiffuse", name: "水波扩散", type: "directive" },
         { is: "TableLayout", name: "表格布局对齐方式", type: "directive" },
         { is: "EqualRatio", name: "高度等于宽度", type: "directive" },
+        { is: "ModifyText", name: "元素可编辑", type: "directive" },
       ],
       i: 0,
     };

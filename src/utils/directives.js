@@ -80,7 +80,7 @@ const particle = {
         }, time * 1000);
       });
     }, 50);
-    el.addEventListener("mouseenter", () => {
+    el.addEventListener("click", () => {
       if (!filter) return;
       el.style.filter = `brightness(${brightness * 100}%) contrast(${
         contrast * 100
@@ -140,7 +140,7 @@ const particle = {
         }, time * 1000);
       });
     }, 100);
-    el.addEventListener("mouseenter", () => {
+    el.addEventListener("click", () => {
       if (!filter) return;
       el.style.filter = `brightness(${brightness * 100}%) contrast(${
         contrast * 100
@@ -191,7 +191,7 @@ const sweepLight = {
         -el.offsetWidth * 1.25
       }px)`;
     } else {
-      el.addEventListener("mouseenter", () => {
+      el.addEventListener("click", () => {
         light.style.transform = `skewX(45deg) translateX(${
           -el.offsetWidth / 1.5
         }px)`;
@@ -345,7 +345,7 @@ const textHoverColor = {
 
     el.appendChild(mask);
     el.appendChild(line);
-    el.addEventListener("mouseenter", () => {
+    el.addEventListener("click", () => {
       mask.style.clipPath = "circle(0% at 50% 50%)";
       line.style.width = "100%";
     });
@@ -730,6 +730,44 @@ const equalRatio = {
   },
 };
 
+const modifyText = {
+  inserted(el, binding) {
+    function edit() {
+      el.removeEventListener("click", edit);
+      const lyb = el.innerHTML;
+      const input = document.createElement("textarea");
+      input.value = lyb;
+      input.style.cssText = `
+        width:${el.offsetWidth}px;
+        height:${el.offsetHeight}px;
+        color:#000;
+        background-color:#fff;
+        outline:none;
+        border:none;
+        resize:none;
+        overflow:hidden;
+      `;
+      setTimeout(() => {
+        input.style.height = input.scrollHeight + "px";
+      });
+      input.addEventListener("input", (e) => {
+        input.style.height = e.target.scrollHeight + "px";
+      });
+      el.innerHTML = "";
+      el.appendChild(input);
+      input.focus();
+      input.onblur = function () {
+        const text = this.value || "空";
+        el.innerHTML = text;
+        el.addEventListener("click", edit);
+        if (lyb === this.value) return;
+        binding.value[0](text, binding.value[1] || "value");
+      };
+    }
+    el.addEventListener("click", edit);
+  },
+};
+
 let directives = {
   downDrag,
   imageOptimizer,
@@ -745,6 +783,7 @@ let directives = {
   waveDiffuse,
   tableLayout,
   equalRatio,
+  modifyText,
 };
 export default {
   install(Vue) {
