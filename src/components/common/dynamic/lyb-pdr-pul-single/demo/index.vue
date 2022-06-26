@@ -144,6 +144,9 @@ export default {
     };
   },
   created() {
+    alert(
+      "此页面需要通过手指滑动才能下拉刷新，打开F12，点击左上角有个模拟移动端访问的按钮，然后就可以鼠标按钮并滑动列表",
+    );
     this.total = this.getData.length;
     this.totalPage = Math.floor(this.total / this.limit);
   },
