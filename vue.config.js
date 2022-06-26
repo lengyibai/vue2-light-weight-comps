@@ -10,6 +10,13 @@ module.exports = defineConfig({
           "^/upload": "",
         },
       },
+      "/movie": {
+        target: "https://api.web.360kan.com",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/movie": "",
+        },
+      },
     },
   },
   publicPath: "./",

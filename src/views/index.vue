@@ -55,6 +55,7 @@ import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"
 import UploadFile from "../components/common/dynamic/lyb-upload/demo"; //文件上传
 import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
+import PdrPulSingle from "../components/common/dynamic/lyb-pdr-pul-single/demo"; //上拉加载下拉刷新(单)
 
 import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
 import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
@@ -102,6 +103,7 @@ export default {
     UploadFile,
     UploadImg,
     ValidationCountdown,
+    PdrPulSingle,
 
     MaskGradient,
     ParallaxImg,
@@ -149,6 +151,11 @@ export default {
         { is: "UploadFile", name: "文件上传", type: "dynamic" },
         { is: "UploadImg", name: "图片上传", type: "dynamic" },
         { is: "ValidationCountdown", name: "获取验证码按钮", type: "dynamic" },
+        {
+          is: "PdrPulSingle",
+          name: "上拉加载下拉刷新(单)",
+          type: "dynamic",
+        },
 
         { is: "MaskGradient", name: "渐变蒙版", type: "directive" },
         { is: "ParallaxImg", name: "图片视差背景", type: "directive" },
