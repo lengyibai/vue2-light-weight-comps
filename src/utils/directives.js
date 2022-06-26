@@ -658,6 +658,7 @@ const downDrag = {
   },
 };
 
+//#####··········水波扩散··········#####//
 const waveDiffuse = {
   inserted(el) {
     el.style.cssText = `
@@ -699,6 +700,36 @@ const waveDiffuse = {
   },
 };
 
+//#####··········表格布局对齐方式··········#####//
+const tableLayout = {
+  inserted(el, { value }) {
+    el.style.cssText = `
+    border-collapse: collapse;
+    `;
+    [...el.querySelectorAll("td")].forEach((item, index) => {
+      if (value[2]) item.style.border = "1px solid red";
+      item.style.wordBreak = "break-all";
+      item.style.textAlign = index % 2 ? value[1] : value[0];
+    });
+  },
+};
+
+//#####··········高度等于宽度··········#####//
+const equalRatio = {
+  // value：倍数
+  inserted(el, { value = 1 }) {
+    update();
+    function update() {
+      el.style.height = el.offsetWidth * value + "px";
+    }
+    window.addEventListener("resize", function () {
+      requestAnimationFrame(function () {
+        update();
+      });
+    });
+  },
+};
+
 let directives = {
   downDrag,
   imageOptimizer,
@@ -712,6 +743,8 @@ let directives = {
   typewriterMultiple,
   typewriterSingle,
   waveDiffuse,
+  tableLayout,
+  equalRatio,
 };
 export default {
   install(Vue) {

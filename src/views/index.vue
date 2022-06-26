@@ -69,6 +69,8 @@ import TypewriterSingle from "@/directives/TypewriterSingle"; //单行打字机
 import ImageOptimizer from "@/directives/ImageOptimizer"; //单行打字机
 import DownDrag from "@/directives/DownDrag"; //按下拖动
 import WaveDiffuse from "@/directives/WaveDiffuse"; //水波扩散
+import TableLayout from "@/directives/TableLayout"; //表格布局对齐方式
+import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
 export default {
   name: "index",
   components: {
@@ -113,6 +115,8 @@ export default {
     ImageOptimizer,
     DownDrag,
     WaveDiffuse,
+    TableLayout,
+    EqualRatio,
   },
   data() {
     return {
@@ -157,6 +161,8 @@ export default {
         { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
         { is: "DownDrag", name: "按下拖动", type: "directive" },
         { is: "WaveDiffuse", name: "水波扩散", type: "directive" },
+        { is: "TableLayout", name: "表格布局对齐方式", type: "directive" },
+        { is: "EqualRatio", name: "高度等于宽度", type: "directive" },
       ],
       i: 0,
     };
