@@ -29,7 +29,7 @@
 <script>
 ////···············公共组件···············////
 /* 注意：目前用于只是用于测试，所以使用同一个组件，实际开发每栏的内容都不同，所以需要引入三个不一样的上拉刷新下拉加载组件 */
-import SingleColumn from "./childComp";
+import SingleColumn from "./childComp"; //实际上就是用的单栏的demo，只是顶部多了导航栏，需要改top高度
 export default {
   props: {},
   data() {

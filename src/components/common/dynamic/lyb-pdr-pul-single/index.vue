@@ -406,7 +406,7 @@ export default {
       // 当底部盒子距离可视区有一个屏幕的距离则触发上拉加载
       // < this.$refs.scroll.offsetHeight
       if (
-        disbottom < document.documentElement.clientHeight * 5 &&
+        disbottom < document.documentElement.clientHeight * 0 &&
         !this.isUploading &&
         !this.isFinish &&
         this.isFinishRefresh
