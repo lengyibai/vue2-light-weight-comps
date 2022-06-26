@@ -8,7 +8,7 @@
       :status="status"
       ref="scroll"
       bottom="25px"
-      top="25px"
+      top="75px"
     >
       <div class="content">
         <li
