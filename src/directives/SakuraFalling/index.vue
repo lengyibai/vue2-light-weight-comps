@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "sakuraFalling",
+  name: "SakuraFalling",
 };
 </script>
 <style scoped lang="less">

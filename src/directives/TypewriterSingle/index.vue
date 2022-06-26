@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: "Typewriter",
+  name: "TypewriterSingle",
 };
 </script>
 <style scoped lang="less">

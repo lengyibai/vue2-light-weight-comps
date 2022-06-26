@@ -67,6 +67,8 @@ import TextHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
 import TypewriterMultiple from "@/directives/TypewriterMultiple"; //多行打字机
 import TypewriterSingle from "@/directives/TypewriterSingle"; //单行打字机
 import ImageOptimizer from "@/directives/ImageOptimizer"; //单行打字机
+import DownDrag from "@/directives/DownDrag"; //按下拖动
+import WaveDiffuse from "@/directives/WaveDiffuse"; //水波扩散
 export default {
   name: "index",
   components: {
@@ -109,6 +111,8 @@ export default {
     TypewriterMultiple,
     TypewriterSingle,
     ImageOptimizer,
+    DownDrag,
+    WaveDiffuse,
   },
   data() {
     return {
@@ -151,6 +155,8 @@ export default {
         { is: "TypewriterMultiple", name: "打字机(多行)", type: "directive" },
         { is: "TypewriterSingle", name: "打字机(单行)", type: "directive" },
         { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
+        { is: "DownDrag", name: "按下拖动", type: "directive" },
+        { is: "WaveDiffuse", name: "水波扩散", type: "directive" },
       ],
       i: 0,
     };

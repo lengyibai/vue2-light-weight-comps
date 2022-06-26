@@ -3,6 +3,11 @@
     <span class="lyb" v-textHoverColor>冷弋白</span>
   </div>
 </template>
+<script>
+export default {
+  name: "TextHoverColor",
+};
+</script>
 <style scoped lang="less">
 .lyb {
   position: relative;

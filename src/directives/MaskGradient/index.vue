@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "Particle",
+  name: "MaskGradient",
   data() {
     return {};
   },

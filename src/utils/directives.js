@@ -627,17 +627,91 @@ const imageOptimizer = {
   },
 };
 
+//#####··········按下拖动··········#####//
+const downDrag = {
+  inserted(el) {
+    el.style.cursor = "move";
+    let x = 0,
+      y = 0,
+      startX = 0,
+      startY = 0,
+      moveX = 0,
+      moveY = 0;
+    el.addEventListener("mousedown", (e) => {
+      x = e.pageX;
+      y = e.pageY;
+      startX = el.offsetLeft;
+      startY = el.offsetTop;
+      window.addEventListener("mousemove", fn);
+      function fn(e) {
+        requestAnimationFrame(function () {
+          moveX = e.pageX - x;
+          moveY = e.pageY - y;
+          el.style.left = `${moveX + startX}px`;
+          el.style.top = `${moveY + startY}px`;
+        });
+      }
+      window.addEventListener("mouseup", () => {
+        window.removeEventListener("mousemove", fn);
+      });
+    });
+  },
+};
+
+const waveDiffuse = {
+  inserted(el) {
+    el.style.cssText = `
+    position: relative;
+    overflow: hidden;
+    `;
+    const style = `
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border-radius: 50%;
+      width: 0;
+      height: 0;
+      opacity: 0.5;
+      transition: all 1s linear;
+      `;
+    el.addEventListener("mousedown", function (e) {
+      console.log("点击了");
+      const c = document.createElement("span");
+      c.style.cssText = style;
+      const x = e.clientX - e.target.getBoundingClientRect().left;
+      const y = e.clientY - e.target.getBoundingClientRect().top;
+      c.style.left = x + "px";
+      c.style.top = y + "px";
+      this.appendChild(c);
+      const width = e.target.offsetWidth;
+      const height = e.target.offsetHeight;
+      const size = width > height ? width : height;
+      c.style.width = `${size * 4}px`;
+      c.style.height = `${size * 4}px`;
+      el.addEventListener("mouseup", () => {
+        c.style.opacity = 0;
+        setTimeout(() => {
+          c.remove();
+        }, 1000);
+      });
+    });
+  },
+};
+
 let directives = {
+  downDrag,
+  imageOptimizer,
+  maskGradient,
   parallaxBg,
   particle,
-  maskGradient,
-  sweepLight,
-  typewriterMultiple,
-  typewriterSingle,
-  textHoverColor,
   sakuraFalling,
   snowFalling,
-  imageOptimizer,
+  sweepLight,
+  textHoverColor,
+  typewriterMultiple,
+  typewriterSingle,
+  waveDiffuse,
 };
 export default {
   install(Vue) {

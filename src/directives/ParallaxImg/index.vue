@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "index",
+  name: "ParallaxImg",
   data() {
     return {};
   },
