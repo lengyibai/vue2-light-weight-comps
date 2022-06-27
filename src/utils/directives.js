@@ -80,7 +80,7 @@ const particle = {
         }, time * 1000);
       });
     }, 50);
-    el.addEventListener("click", () => {
+    el.addEventListener("mouseenter", () => {
       if (!filter) return;
       el.style.filter = `brightness(${brightness * 100}%) contrast(${
         contrast * 100
@@ -191,7 +191,7 @@ const sweepLight = {
         -el.offsetWidth * 1.25
       }px)`;
     } else {
-      el.addEventListener("click", () => {
+      el.addEventListener("mouseenter", () => {
         light.style.transform = `skewX(45deg) translateX(${
           -el.offsetWidth / 1.5
         }px)`;
@@ -345,7 +345,7 @@ const textHoverColor = {
 
     el.appendChild(mask);
     el.appendChild(line);
-    el.addEventListener("click", () => {
+    el.addEventListener("mouseenter", () => {
       mask.style.clipPath = "circle(0% at 50% 50%)";
       line.style.width = "100%";
     });
