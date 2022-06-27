@@ -31,16 +31,19 @@ export default {
   },
   mounted() {
     this.lybGrid = this.$refs.lybGrid;
-    let timer = setInterval(() => {
-      if (this.eqhMultiple > 0 && this.$slots.default.length) {
-        this.updateHeight();
-        clearInterval(timer);
+    let a = null;
+    const _this = this;
+    (function fn() {
+      console.log(666);
+      if (_this.eqhMultiple > 0 && _this.$slots.default.length) {
+        _this.updateHeight();
         return;
       }
-    }, 1000);
+      a = requestAnimationFrame(fn);
+    })();
     // 3秒后还未获取到插槽元素，则取消获取
     setTimeout(() => {
-      clearInterval(timer);
+      cancelAnimationFrame(a);
     }, 3000);
   },
   methods: {
