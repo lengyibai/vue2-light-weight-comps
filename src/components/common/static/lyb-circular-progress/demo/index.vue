@@ -21,6 +21,14 @@ export default {
       num: 50,
     };
   },
+  watch: {
+    num(v) {
+      if (v.toString().indexOf(".") !== -1) {
+        this.num = parseInt(v);
+        alert("不能为小数");
+      }
+    },
+  },
   components: {},
   methods: {},
 };
