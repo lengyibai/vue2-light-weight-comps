@@ -690,12 +690,14 @@ const waveDiffuse = {
       const size = width > height ? width : height;
       c.style.width = `${size * 4}px`;
       c.style.height = `${size * 4}px`;
-      el.addEventListener("mouseup", () => {
+      function fn() {
         c.style.opacity = 0;
         setTimeout(() => {
           c.remove();
         }, 1000);
-      });
+      }
+      el.addEventListener("mouseup", fn);
+      el.addEventListener("mouseleave", fn);
     });
   },
 };
@@ -730,6 +732,7 @@ const equalRatio = {
   },
 };
 
+//#####··········元素可编辑··········#####//
 const modifyText = {
   inserted(el, binding) {
     function edit() {
