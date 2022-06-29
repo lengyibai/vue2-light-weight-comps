@@ -785,10 +785,8 @@ let directives = {
   equalRatio,
   modifyText,
 };
-export default {
-  install(Vue) {
-    Object.keys(directives).forEach((directive) => {
-      Vue.directive(directive, directives[directive]);
-    });
-  },
-};
+
+import Vue from "vue";
+Object.keys(directives).forEach((directive) => {
+  Vue.directive(directive, directives[directive]);
+});

@@ -9,8 +9,7 @@ Vue.use(ElementUI);
 //####········个人组件
 import "@/components/common/index.js";
 //####        自定义指令
-import directives from "@/utils/directives.js";
-Vue.use(directives);
+import "@/utils/directives.js";
 //####······公共样式
 import "@/assets/css/default.css";
 import "@/assets/css/style.css";
