@@ -2,8 +2,9 @@
   <el-cascader
     :options="address"
     :props="props"
+    :value="value"
     placeholder="选择地址"
-    @change="handleChange"
+    @change="fn"
     style="width: 100%"
   >
   </el-cascader>
@@ -18,9 +19,16 @@ export default {
       type: Boolean,
       default: true,
     },
+    value: {
+      type: Array,
+      default() {
+        return ["510000", "510100", "510107"];
+      },
+    },
   },
   name: "LybSelectAddress",
   data() {
+    this.address = address;
     return {
       props: {
         value: "value",
@@ -32,14 +40,10 @@ export default {
   created() {
     this.props.value = this.code ? "value" : "text";
   },
-  computed: {
-    address() {
-      return address;
-    },
-  },
   methods: {
-    handleChange(val) {
-      this.$emit("select-change", val);
+    fn(v) {
+      console.log(v);
+      this.$emit("input", v);
     },
   },
 };

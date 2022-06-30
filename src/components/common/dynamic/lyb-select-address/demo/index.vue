@@ -1,9 +1,9 @@
 <template>
   <div class="demoFull flex">
     <div class="LybSelectAddress">
-      <LybSelectAddress @select-change="selectChangeCode" />
+      <LybSelectAddress v-model="code" />
       <h1>{{ code }}</h1>
-      <LybSelectAddress @select-change="selectChangeChinese" :code="false" />
+      <LybSelectAddress v-model="chinese" :code="false" />
       <h1>{{ chinese }}</h1>
     </div>
   </div>
@@ -13,17 +13,9 @@ export default {
   name: "demo",
   data() {
     return {
-      code: "地理位置代码",
-      chinese: "地理位置名称",
+      code: ["510000", "510100", "510107"],
+      chinese: ["四川省", "自贡市", "自流井区"],
     };
-  },
-  methods: {
-    selectChangeCode(v) {
-      this.code = v;
-    },
-    selectChangeChinese(v) {
-      this.chinese = v;
-    },
   },
 };
 </script>
