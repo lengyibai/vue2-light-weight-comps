@@ -4,8 +4,7 @@
       <LybSvg
         :svg="icon.wzry"
         color="red"
-        enter-color="yellow"
-        down-color="blue"
+        enter-color="blue"
         size="10vw"
         right="2vw"
       />尝试按下图标

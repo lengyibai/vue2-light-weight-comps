@@ -31,18 +31,21 @@ export default {
       type: String,
       default: "",
     },
+    // 图标颜色
     color: {
       type: String,
       default: "",
     },
+    /* 悬浮颜色 */
     enterColor: {
       type: String,
       default: "",
     },
-    downColor: {
-      type: String,
-      default: "",
-    },
+    /* 按下颜色，已被按下缩小动画替换，开发者可自定义按下、悬浮、离开样式 */
+    // downColor: {
+    //   type: String,
+    //   default: "",
+    // },
     //悬浮描述
     title: {
       type: String,
@@ -81,15 +84,19 @@ export default {
     up(el) {
       if (el.tagName === "svg") {
         el.parentNode.style.color = this.enterColor;
+        el.parentNode.style.transform = "scale(1)";
       } else {
         el.parentNode.parentNode.style.color = this.enterColor;
+        el.parentNode.parentNode.style.transform = "scale(1)";
       }
     },
     down(el) {
       if (el.tagName === "svg") {
-        el.parentNode.style.color = this.downColor;
+        // el.parentNode.style.color = this.enterColor;
+        el.parentNode.style.transform = "scale(0.9)";
       } else {
-        el.parentNode.parentNode.style.color = this.downColor;
+        // el.parentNode.parentNode.style.color = this.enterColor;
+        el.parentNode.parentNode.style.transform = "scale(0.9)";
       }
     },
   },
