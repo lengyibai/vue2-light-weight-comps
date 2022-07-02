@@ -1,6 +1,13 @@
 <template>
   <div class="demoFull flex">
-    <div class="lyb bgImg" v-maskGradient>
+    <div
+      class="lyb bgImg"
+      v-maskGradient="{
+        color: 'rgba(0, 0, 0, 0.75)',
+        num1: '0%',
+        num2: '50%',
+      }"
+    >
       <img src="http://lengyibai.gitee.io/img-bed/img/lyb.png" alt="" />
       <span>这里是冷弋(yi)白</span>
     </div>
