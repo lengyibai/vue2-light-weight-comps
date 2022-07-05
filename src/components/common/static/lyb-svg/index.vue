@@ -76,17 +76,17 @@ export default {
   },
   methods: {
     enter(el) {
-      el.style.color = this.enterColor;
+      el.style.color = this.enterColor || this.color;
     },
     leave(el) {
       el.style.color = this.color;
     },
     up(el) {
       if (el.tagName === "svg") {
-        el.parentNode.style.color = this.enterColor;
+        el.parentNode.style.color = this.enterColor || this.color;
         el.parentNode.style.transform = "scale(1)";
       } else {
-        el.parentNode.parentNode.style.color = this.enterColor;
+        el.parentNode.parentNode.style.color = this.enterColor || this.color;
         el.parentNode.parentNode.style.transform = "scale(1)";
       }
     },
