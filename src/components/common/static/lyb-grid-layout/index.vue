@@ -34,7 +34,6 @@ export default {
     let a = null;
     const _this = this;
     (function fn() {
-      console.log(666);
       if (_this.eqhMultiple > 0 && _this.$slots.default.length) {
         _this.updateHeight();
         return;
@@ -52,21 +51,22 @@ export default {
       box.forEach((item) => {
         item.elm.style.height = item.elm.scrollWidth * this.eqhMultiple + "px";
       });
-      window.addEventListener(
-        "resize",
+      window.addEventListener("resize", this.fn);
+    },
+    fn() {
+      requestAnimationFrame(
         function () {
-          requestAnimationFrame(
-            function () {
-              const box = this.$slots.default;
-              box.forEach((item) => {
-                item.elm.style.height =
-                  item.elm.offsetWidth * this.eqhMultiple + "px";
-              });
-            }.bind(this),
-          );
+          const box = this.$slots.default;
+          box.forEach((item) => {
+            item.elm.style.height =
+              item.elm.offsetWidth * this.eqhMultiple + "px";
+          });
         }.bind(this),
       );
     },
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.fn);
   },
 };
 </script>
