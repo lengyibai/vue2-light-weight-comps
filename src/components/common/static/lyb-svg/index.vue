@@ -109,6 +109,7 @@ export default {
   background-size: contain;
   cursor: pointer;
   transition: all 0.25s;
+  font-size: 0; //解决span受html字体大小被flexible设置，导致span标签挤出SVG
   &:hover {
     transition: all 0.1s;
   }
