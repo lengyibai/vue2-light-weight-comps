@@ -26,6 +26,7 @@ export default {
 <style scoped lang="less">
 .demoFull {
   .lyb {
+    position: relative; //必加
     width: clamp(0px, 25vw, 90vh);
     height: clamp(0px, 25vw, 90vh);
     img {
