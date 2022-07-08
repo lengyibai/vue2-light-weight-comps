@@ -4,7 +4,7 @@
     <a
       v-textHoverColor
       class="lyb"
-      href="https://gitee.com/lengyibai"
+      href="https://github.com/lengyibai/vue2-light-weight-comps"
       target="_blank"
       >@冷弋白</a
     >
