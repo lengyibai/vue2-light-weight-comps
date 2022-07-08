@@ -28,57 +28,59 @@
   </div>
 </template>
 <script>
-import Elevator from "./childComp/Elevator.vue";
-import CircularProgress from "../components/common/static/lyb-circular-progress/demo"; //环形进度条
+import CircularProgress from "@/components/common/static/lyb-circular-progress/demo"; //环形进度条
+import Commit from "@/components/common/static/lyb-commit/demo"; //提交按钮
 import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
+import Elevator from "./childComp/Elevator.vue";
 import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
-import FullScroll from "../components/common/static/lyb-full-scroll/demo"; // 全屏滚动
-import GridLayout from "../components/common/static/lyb-grid-layout/demo"; //Grid特色布局
-import GridLetter from "../components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
-import GridNumber from "../components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
-import Icon from "../components/common/static/lyb-icon/demo"; //图标
-import Loading from "../components/common/static/lyb-loading/demo"; //loading
-import LybIframe from "../components/common/static/lyb-iframe/demo"; //Grid字母模板布局
-import LybMask from "../components/common/static/lyb-mask/demo"; //Grid字母模板布局
-import LybSvg from "../components/common/static/lyb-svg/demo"; //SVG图标
-import QrCode from "../components/common/static/lyb-qr-code/demo"; //生成二维码
-import Range from "../components/common/static/lyb-range/demo"; //滑动选择器
-import Scroll from "../components/common/static/lyb-scroll/demo"; //移动端滚动插件
-import Swipe from "../components/common/static/lyb-swipe/demo"; //swiper轮播图
-import Table from "../components/common/static/lyb-table/demo"; //表格
-import Video from "../components/common/static/lyb-video/demo"; //视频播放器
-import MaskClose from "../components/common/static/lyb-mask-close/demo"; //视频播放器
+import FullScroll from "@/components/common/static/lyb-full-scroll/demo"; // 全屏滚动
+import GridLayout from "@/components/common/static/lyb-grid-layout/demo"; //Grid特色布局
+import GridLetter from "@/components/common/static/lyb-grid-letter/demo"; //Grid字母模板布局
+import GridNumber from "@/components/common/static/lyb-grid-number/demo"; //Grid数字模板布局
+import Icon from "@/components/common/static/lyb-icon/demo"; //图标
+import Loading from "@/components/common/static/lyb-loading/demo"; //loading
+import LybIframe from "@/components/common/static/lyb-iframe/demo"; //Grid字母模板布局
+import LybMask from "@/components/common/static/lyb-mask/demo"; //Grid字母模板布局
+import LybSvg from "@/components/common/static/lyb-svg/demo"; //SVG图标
+import MaskClose from "@/components/common/static/lyb-mask-close/demo"; //顶部关闭蒙版
+import QrCode from "@/components/common/static/lyb-qr-code/demo"; //生成二维码
+import Range from "@/components/common/static/lyb-range/demo"; //滑动选择器
+import Scroll from "@/components/common/static/lyb-scroll/demo"; //移动端滚动插件
+import Swipe from "@/components/common/static/lyb-swipe/demo"; //swiper轮播图
+import Table from "@/components/common/static/lyb-table/demo"; //表格
+import Video from "@/components/common/static/lyb-video/demo"; //视频播放器
 
 import DragSort from "@/components/common/dynamic/lyb-drag-sort/demo"; //拖拽排序
-import RichText from "../components/common/dynamic/lyb-rich-text/demo"; //富文本
-import SelectAddress from "../components/common/dynamic/lyb-select-address/demo"; //省市区
-import UploadFile from "../components/common/dynamic/lyb-upload/demo"; //文件上传
-import UploadImg from "../components/common/dynamic/lyb-upload-img/demo"; //图片上传
-import ValidationCountdown from "../components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
-import PdrPulSingle from "../components/common/dynamic/lyb-pdr-pul-single/demo"; //上拉加载下拉刷新(单)
-import PdrPulMultiple from "../components/common/dynamic/lyb-pdr-pul-multiple/demo"; //上拉加载下拉刷新(单)
+import PdrPulMultiple from "@/components/common/dynamic/lyb-pdr-pul-multiple/demo"; //上拉加载下拉刷新(单)
+import PdrPulSingle from "@/components/common/dynamic/lyb-pdr-pul-single/demo"; //上拉加载下拉刷新(单)
+import RichText from "@/components/common/dynamic/lyb-rich-text/demo"; //富文本
+import SelectAddress from "@/components/common/dynamic/lyb-select-address/demo"; //省市区
+import UploadFile from "@/components/common/dynamic/lyb-upload/demo"; //文件上传
+import UploadImg from "@/components/common/dynamic/lyb-upload-img/demo"; //图片上传
+import ValidationCountdown from "@/components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 
+import DownDrag from "@/directives/DownDrag"; //按下拖动
+import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
+import ImageOptimizer from "@/directives/ImageOptimizer"; //单行打字机
 import MaskGradient from "@/directives/MaskGradient"; //渐变蒙版
+import ModifyText from "@/directives/ModifyText"; //元素可编辑
 import ParallaxImg from "@/directives/ParallaxImg"; //图片视差背景
 import ParallaxVideo from "@/directives/ParallaxVideo"; //视频视差背景
 import Particle from "@/directives/Particle"; //粒子效果
 import SakuraFalling from "@/directives/SakuraFalling"; //樱花飘落
 import SnowFalling from "@/directives/SnowFalling"; //雪花飘落
 import SweepLight from "@/directives/SweepLight"; //卡片扫光
+import TableLayout from "@/directives/TableLayout"; //表格布局对齐方式
 import TextHoverColor from "@/directives/TextHoverColor"; //文字悬浮变色
 import TypewriterMultiple from "@/directives/TypewriterMultiple"; //多行打字机
 import TypewriterSingle from "@/directives/TypewriterSingle"; //单行打字机
-import ImageOptimizer from "@/directives/ImageOptimizer"; //单行打字机
-import DownDrag from "@/directives/DownDrag"; //按下拖动
 import WaveDiffuse from "@/directives/WaveDiffuse"; //水波扩散
-import TableLayout from "@/directives/TableLayout"; //表格布局对齐方式
-import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
-import ModifyText from "@/directives/ModifyText"; //元素可编辑
 export default {
   name: "index",
   components: {
     Elevator,
     CircularProgress,
+    Commit,
     Echarts,
     FlipBox,
     FullScroll,
@@ -99,35 +101,36 @@ export default {
     Video,
 
     DragSort,
+    PdrPulMultiple,
+    PdrPulSingle,
     RichText,
     SelectAddress,
     UploadFile,
     UploadImg,
     ValidationCountdown,
-    PdrPulSingle,
-    PdrPulMultiple,
 
+    DownDrag,
+    EqualRatio,
+    ImageOptimizer,
     MaskGradient,
+    ModifyText,
     ParallaxImg,
     ParallaxVideo,
     Particle,
     SakuraFalling,
     SnowFalling,
     SweepLight,
+    TableLayout,
     TextHoverColor,
     TypewriterMultiple,
     TypewriterSingle,
-    ImageOptimizer,
-    DownDrag,
     WaveDiffuse,
-    TableLayout,
-    EqualRatio,
-    ModifyText,
   },
   data() {
     return {
       components: [
         { is: "CircularProgress", name: "环形进度条", type: "static" },
+        { is: "Commit", name: "提交按钮", type: "static" },
         { is: "Echarts", name: "Echarts图表", type: "static" },
         { is: "FlipBox", name: "卡片翻转", type: "static" },
         { is: "FullScroll", name: "全屏滚动", type: "static" },
@@ -148,38 +151,30 @@ export default {
         { is: "Video", name: "视频播放器", type: "static" },
 
         { is: "DragSort", name: "拖拽排序", type: "dynamic" },
+        { is: "PdrPulMultiple", name: "上拉加载下拉刷新(多)", type: "dynamic" },
+        { is: "PdrPulSingle", name: "上拉加载下拉刷新(单)", type: "dynamic" },
         { is: "RichText", name: "富文本", type: "dynamic" },
         { is: "SelectAddress", name: "省市区", type: "dynamic" },
         { is: "UploadFile", name: "文件上传", type: "dynamic" },
         { is: "UploadImg", name: "图片上传", type: "dynamic" },
         { is: "ValidationCountdown", name: "获取验证码按钮", type: "dynamic" },
-        {
-          is: "PdrPulSingle",
-          name: "上拉加载下拉刷新(单)",
-          type: "dynamic",
-        },
-        {
-          is: "PdrPulMultiple",
-          name: "上拉加载下拉刷新(多)",
-          type: "dynamic",
-        },
 
+        { is: "DownDrag", name: "按下拖动", type: "directive" },
+        { is: "EqualRatio", name: "高度等于宽度", type: "directive" },
+        { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
         { is: "MaskGradient", name: "渐变蒙版", type: "directive" },
+        { is: "ModifyText", name: "元素可编辑", type: "directive" },
         { is: "ParallaxImg", name: "图片视差背景", type: "directive" },
         { is: "ParallaxVideo", name: "视频视差背景", type: "directive" },
         { is: "Particle", name: "粒子效果", type: "directive" },
         { is: "SakuraFalling", name: "樱花飘落", type: "directive" },
         { is: "SnowFalling", name: "雪花飘落", type: "directive" },
         { is: "SweepLight", name: "卡片扫光", type: "directive" },
+        { is: "TableLayout", name: "表格布局对齐方式", type: "directive" },
         { is: "TextHoverColor", name: "文字悬浮变色", type: "directive" },
         { is: "TypewriterMultiple", name: "打字机(多行)", type: "directive" },
         { is: "TypewriterSingle", name: "打字机(单行)", type: "directive" },
-        { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
-        { is: "DownDrag", name: "按下拖动", type: "directive" },
         { is: "WaveDiffuse", name: "水波扩散", type: "directive" },
-        { is: "TableLayout", name: "表格布局对齐方式", type: "directive" },
-        { is: "EqualRatio", name: "高度等于宽度", type: "directive" },
-        { is: "ModifyText", name: "元素可编辑", type: "directive" },
       ],
       i: 0,
     };
