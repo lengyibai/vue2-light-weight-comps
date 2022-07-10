@@ -5,6 +5,7 @@
         :svg="icon.wzry"
         color="red"
         enter-color="blue"
+        down-color="green"
         size="10vw"
         right="2vw"
       />尝试按下图标
