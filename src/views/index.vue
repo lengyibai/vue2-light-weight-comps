@@ -29,7 +29,10 @@
 </template>
 <script>
 import CircularProgress from "@/components/common/static/lyb-circular-progress/demo"; //环形进度条
-import Commit from "@/components/common/static/lyb-commit/demo"; //提交按钮
+import CommitBtn from "@/components/common/static/lyb-commit-btn/demo"; //提交按钮
+import UpdateBtn from "@/components/common/static/lyb-update-btn/demo"; //更新按钮
+import DeleteBtn from "@/components/common/static/lyb-delete-btn/demo"; //删除按钮
+import CancelBtn from "@/components/common/static/lyb-cancel-btn/demo"; //取消按钮
 import Echarts from "@/components/common/static/lyb-echarts/demo"; //Echarts图表
 import Elevator from "./childComp/Elevator.vue";
 import FlipBox from "@/components/common/static/lyb-flip-box/demo"; //卡片翻转
@@ -80,7 +83,10 @@ export default {
   components: {
     Elevator,
     CircularProgress,
-    Commit,
+    CommitBtn,
+    UpdateBtn,
+    DeleteBtn,
+    CancelBtn,
     Echarts,
     FlipBox,
     FullScroll,
@@ -130,7 +136,10 @@ export default {
     return {
       components: [
         { is: "CircularProgress", name: "环形进度条", type: "static" },
-        { is: "Commit", name: "提交按钮", type: "static" },
+        { is: "CommitBtn", name: "提交按钮", type: "static" },
+        { is: "CancelBtn", name: "取消按钮", type: "static" },
+        { is: "UpdateBtn", name: "更新按钮", type: "static" },
+        { is: "DeleteBtn", name: "删除按钮", type: "static" },
         { is: "Echarts", name: "Echarts图表", type: "static" },
         { is: "FlipBox", name: "卡片翻转", type: "static" },
         { is: "FullScroll", name: "全屏滚动", type: "static" },
