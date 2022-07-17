@@ -77,11 +77,11 @@ export default {
       transition: all 0.5s;
       &.lid {
         width: 65%;
-        transform: translateY(-65px);
+        transform: translateY(-30%);
       }
       &.bucket {
         width: 45%;
-        transform: translateY(21px);
+        transform: translateY(10%);
       }
     }
   }
