@@ -3,14 +3,15 @@
     <div
       class="page"
       :class="{
-        activeStatic: currentIndex === index && item.type === 'static',
-        activeDynamic: currentIndex === index && item.type === 'dynamic',
-        activeDirective: currentIndex === index && item.type === 'directive',
+        activeStatic: currentTitle === item.name && item.type === 'static',
+        activeDynamic: currentTitle === item.name && item.type === 'dynamic',
+        activeDirective:
+          currentTitle === item.name && item.type === 'directive',
         static: item.type === 'static',
         dynamic: item.type === 'dynamic',
         directive: item.type === 'directive',
       }"
-      @click="fn(index)"
+      @click="fn(item.name)"
       v-for="(item, index) in components"
       :key="index"
     >
@@ -21,9 +22,9 @@
 <script>
 export default {
   props: {
-    index: {
-      type: Number,
-      default: 0,
+    title: {
+      type: String,
+      default: "",
     },
     components: {
       type: Array,
@@ -35,23 +36,36 @@ export default {
   name: "Elevator",
   data() {
     return {
-      currentIndex: 0,
+      currentTitle: "全屏滚动",
     };
   },
   watch: {
-    index(v) {
-      this.currentIndex = v;
+    title(v) {
+      this.currentTitle = v;
     },
   },
   created() {
+    function $getPathParams() {
+      let url = decodeURI(location.search);
+      let params = {};
+      if (url.indexOf("?") != -1) {
+        let str = url.substr(1);
+        let strs = str.split("&");
+        for (let i = 0; i < strs.length; i++) {
+          params[strs[i].split("=")[0]] = strs[i].split("=")[1];
+        }
+      }
+      return params;
+    }
+    this.currentTitle = $getPathParams().i || this.currentTitle;
     //#####··········一创建就更新坐标··········#####//
-    this.$emit("change", this.currentIndex);
+    this.$emit("change", this.currentTitle);
   },
   methods: {
     //#####··········点击后跳转··········#####//
-    fn(index) {
-      this.currentIndex = index;
-      this.$emit("change", index);
+    fn(title) {
+      this.currentTitle = title;
+      this.$emit("change", title);
     },
   },
 };

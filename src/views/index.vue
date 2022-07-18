@@ -4,7 +4,7 @@
       <Elevator
         class="Elevator"
         @change="change"
-        :index="i"
+        :title="title"
         :components="components"
       />
       <div class="tips">
@@ -17,11 +17,11 @@
       <div
         class="box"
         v-for="(item, index) in components"
-        v-show="i === index"
+        v-show="title === item.name"
         :key="index"
       >
         <div is="transition" name="fade">
-          <div v-if="i === index" :is="item.is"></div>
+          <div v-if="title === item.name" :is="item.is"></div>
         </div>
       </div>
     </div>
@@ -61,6 +61,7 @@ import SelectAddress from "@/components/common/dynamic/lyb-select-address/demo";
 import UploadFile from "@/components/common/dynamic/lyb-upload/demo"; //文件上传
 import UploadImg from "@/components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "@/components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
+import ScrollInto from "@/components/common/dynamic/lyb-scroll-into/demo"; //滚动入场动画
 
 import DownDrag from "@/directives/DownDrag"; //按下拖动
 import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
@@ -114,6 +115,7 @@ export default {
     UploadFile,
     UploadImg,
     ValidationCountdown,
+    ScrollInto,
 
     DownDrag,
     EqualRatio,
@@ -135,63 +137,64 @@ export default {
   data() {
     return {
       components: [
-        { is: "CircularProgress", name: "环形进度条", type: "static" },
-        { is: "CommitBtn", name: "提交按钮", type: "static" },
-        { is: "CancelBtn", name: "取消按钮", type: "static" },
-        { is: "UpdateBtn", name: "更新按钮", type: "static" },
-        { is: "DeleteBtn", name: "删除按钮", type: "static" },
-        { is: "Echarts", name: "Echarts图表", type: "static" },
-        { is: "FlipBox", name: "卡片翻转", type: "static" },
-        { is: "FullScroll", name: "全屏滚动", type: "static" },
-        { is: "GridLayout", name: "Grid特色布局", type: "static" },
-        { is: "GridLetter", name: "Grid字母模板布局", type: "static" },
-        { is: "GridNumber", name: "Grid数字模板布局", type: "static" },
-        { is: "Icon", name: "图标", type: "static" },
-        { is: "Loading", name: "loading", type: "static" },
-        { is: "LybIframe", name: "iframe", type: "static" },
-        { is: "LybMask", name: "蒙版", type: "static" },
-        { is: "LybSvg", name: "SVG变色图标", type: "static" },
-        { is: "MaskClose", name: "顶部关闭蒙版", type: "static" },
-        { is: "QrCode", name: "生成二维码", type: "static" },
-        { is: "Range", name: "滑动选择器", type: "static" },
-        { is: "Scroll", name: "移动端滚动插件", type: "static" },
-        { is: "Swipe", name: "Swiper轮播图", type: "static" },
-        { is: "Table", name: "表格", type: "static" },
-        { is: "Video", name: "视频播放器", type: "static" },
+        { name: "表格", is: "Table", type: "static" },
+        { name: "顶部关闭蒙版", is: "MaskClose", type: "static" },
+        { name: "更新按钮", is: "UpdateBtn", type: "static" },
+        { name: "滑动选择器", is: "Range", type: "static" },
+        { name: "环形进度条", is: "CircularProgress", type: "static" },
+        { name: "卡片翻转", is: "FlipBox", type: "static" },
+        { name: "蒙版", is: "LybMask", type: "static" },
+        { name: "取消按钮", is: "CancelBtn", type: "static" },
+        { name: "全屏滚动", is: "FullScroll", type: "static" },
+        { name: "删除按钮", is: "DeleteBtn", type: "static" },
+        { name: "生成二维码", is: "QrCode", type: "static" },
+        { name: "视频播放器", is: "Video", type: "static" },
+        { name: "提交按钮", is: "CommitBtn", type: "static" },
+        { name: "图标", is: "Icon", type: "static" },
+        { name: "移动端滚动插件", is: "Scroll", type: "static" },
+        { name: "Echarts图表", is: "Echarts", type: "static" },
+        { name: "Grid数字模板布局", is: "GridNumber", type: "static" },
+        { name: "Grid特色布局", is: "GridLayout", type: "static" },
+        { name: "Grid字母模板布局", is: "GridLetter", type: "static" },
+        { name: "iframe", is: "LybIframe", type: "static" },
+        { name: "loading", is: "Loading", type: "static" },
+        { name: "SVG变色图标", is: "LybSvg", type: "static" },
+        { name: "Swiper轮播图", is: "Swipe", type: "static" },
 
-        { is: "DragSort", name: "拖拽排序", type: "dynamic" },
-        { is: "PdrPulMultiple", name: "上拉加载下拉刷新(多)", type: "dynamic" },
-        { is: "PdrPulSingle", name: "上拉加载下拉刷新(单)", type: "dynamic" },
-        { is: "RichText", name: "富文本", type: "dynamic" },
-        { is: "SelectAddress", name: "省市区", type: "dynamic" },
-        { is: "UploadFile", name: "文件上传", type: "dynamic" },
-        { is: "UploadImg", name: "图片上传", type: "dynamic" },
-        { is: "ValidationCountdown", name: "获取验证码按钮", type: "dynamic" },
+        { name: "富文本", is: "RichText", type: "dynamic" },
+        { name: "滚动入场动画", is: "ScrollInto", type: "dynamic" },
+        { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
+        { name: "上拉加载下拉刷新(单)", is: "PdrPulSingle", type: "dynamic" },
+        { name: "上拉加载下拉刷新(多)", is: "PdrPulMultiple", type: "dynamic" },
+        { name: "省市区", is: "SelectAddress", type: "dynamic" },
+        { name: "图片上传", is: "UploadImg", type: "dynamic" },
+        { name: "拖拽排序", is: "DragSort", type: "dynamic" },
+        { name: "文件上传", is: "UploadFile", type: "dynamic" },
 
-        { is: "DownDrag", name: "按下拖动", type: "directive" },
-        { is: "EqualRatio", name: "高度等于宽度", type: "directive" },
-        { is: "ImageOptimizer", name: "图片压缩", type: "directive" },
-        { is: "MaskGradient", name: "渐变蒙版", type: "directive" },
-        { is: "ModifyText", name: "元素可编辑", type: "directive" },
-        { is: "ParallaxImg", name: "图片视差背景", type: "directive" },
-        { is: "ParallaxVideo", name: "视频视差背景", type: "directive" },
-        { is: "Particle", name: "粒子效果", type: "directive" },
-        { is: "SakuraFalling", name: "樱花飘落", type: "directive" },
-        { is: "SnowFalling", name: "雪花飘落", type: "directive" },
-        { is: "SweepLight", name: "卡片扫光", type: "directive" },
-        { is: "TableLayout", name: "表格布局对齐方式", type: "directive" },
-        { is: "TextHoverColor", name: "文字悬浮变色", type: "directive" },
-        { is: "TypewriterMultiple", name: "打字机(多行)", type: "directive" },
-        { is: "TypewriterSingle", name: "打字机(单行)", type: "directive" },
-        { is: "WaveDiffuse", name: "水波扩散", type: "directive" },
+        { name: "按下拖动", is: "DownDrag", type: "directive" },
+        { name: "表格布局对齐方式", is: "TableLayout", type: "directive" },
+        { name: "打字机(单行)", is: "TypewriterSingle", type: "directive" },
+        { name: "打字机(多行)", is: "TypewriterMultiple", type: "directive" },
+        { name: "高度等于宽度", is: "EqualRatio", type: "directive" },
+        { name: "渐变蒙版", is: "MaskGradient", type: "directive" },
+        { name: "卡片扫光", is: "SweepLight", type: "directive" },
+        { name: "粒子效果", is: "Particle", type: "directive" },
+        { name: "视频视差背景", is: "ParallaxVideo", type: "directive" },
+        { name: "水波扩散", is: "WaveDiffuse", type: "directive" },
+        { name: "图片视差背景", is: "ParallaxImg", type: "directive" },
+        { name: "图片压缩", is: "ImageOptimizer", type: "directive" },
+        { name: "文字悬浮变色", is: "TextHoverColor", type: "directive" },
+        { name: "雪花飘落", is: "SnowFalling", type: "directive" },
+        { name: "樱花飘落", is: "SakuraFalling", type: "directive" },
+        { name: "元素可编辑", is: "ModifyText", type: "directive" },
       ],
-      i: 0,
+      title: "全屏滚动",
     };
   },
   methods: {
     //#####········点击触发········#####//
-    change(i) {
-      this.i = i;
+    change(title) {
+      this.title = title;
     },
   },
 };
