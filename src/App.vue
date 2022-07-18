@@ -29,9 +29,6 @@ export default {
     bottom: 0;
     color: #3498db;
     font-size: 20px;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 </style>
