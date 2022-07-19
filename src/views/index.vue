@@ -62,6 +62,7 @@ import UploadFile from "@/components/common/dynamic/lyb-upload/demo"; //文件�
 import UploadImg from "@/components/common/dynamic/lyb-upload-img/demo"; //图片上传
 import ValidationCountdown from "@/components/common/dynamic/lyb-validation-countdown/demo"; //获取验证码按钮
 import ScrollInto from "@/components/common/dynamic/lyb-scroll-into/demo"; //滚动入场动画
+import ScrollFollow from "@/components/common/dynamic/lyb-scroll-follow/demo"; //滚动跟随动画
 
 import DownDrag from "@/directives/DownDrag"; //按下拖动
 import EqualRatio from "@/directives/EqualRatio"; //高度等于宽度
@@ -116,6 +117,7 @@ export default {
     UploadImg,
     ValidationCountdown,
     ScrollInto,
+    ScrollFollow,
 
     DownDrag,
     EqualRatio,
@@ -163,6 +165,7 @@ export default {
 
         { name: "富文本", is: "RichText", type: "dynamic" },
         { name: "滚动入场动画", is: "ScrollInto", type: "dynamic" },
+        { name: "滚动跟随动画", is: "ScrollFollow", type: "dynamic" },
         { name: "获取验证码按钮", is: "ValidationCountdown", type: "dynamic" },
         { name: "上拉加载下拉刷新(单)", is: "PdrPulSingle", type: "dynamic" },
         { name: "上拉加载下拉刷新(多)", is: "PdrPulMultiple", type: "dynamic" },
