@@ -24,7 +24,7 @@ html {
 
 /* 滚动条整体背景 */
 *::-webkit-scrollbar {
-  width: 1px;
+  width: 5px;
 }
 
 /* 滚动条里面可以拖动的那部分 */
