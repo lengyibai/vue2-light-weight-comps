@@ -8,13 +8,14 @@ class eeSourceBtn {
     });
 
     //create btn
-    let button = document.createElement('button');
+    let button = document.createElement('div');
     //display button text
     button.innerHTML = 'html';
     button.style.cssText = `
     color: #444;
     height: fit-content;
     font-weight: bold;
+    cursor: pointer;
     `;
     button.onclick = function () {
       theClass.showSourceEditor(quill);
