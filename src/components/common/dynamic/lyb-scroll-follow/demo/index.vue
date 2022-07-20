@@ -1,17 +1,21 @@
 <template>
   <div class="demoFull">
     <div class="LybScrollFollow" ref="LybScrollFollow" @scroll="scroll">
-      <div class="fill"></div>
       <div class="FollowBox" ref="FollowBox">
-        <div class="sticky"><div class="a" ref="a"></div></div>
+        <div class="sticky">
+          <div class="a" ref="a"></div>
+          <div class="b" ref="b"></div>
+        </div>
       </div>
-      <div class="fill"></div>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "demo",
+  mounted() {
+    this.callback(0);
+  },
   methods: {
     scroll() {
       const parent = this.$refs.LybScrollFollow;
@@ -32,64 +36,90 @@ export default {
       this.callback(scrollY);
     },
     callback(v) {
+      //#####··········房间··········#####//
       this.play(
         this.$refs.a,
         [
           {
-            start: 1000,
-            end: 1500,
-            fn(el, v) {
-              el.style.transform = `translateX(${0 - 200 * v}px)`;
+            interval: [0, 1500],
+            fn(v) {
+              return {
+                transform: `scale(${4 - 2 * v})`,
+                filter: "",
+                opacity: 1,
+              };
             },
           },
           {
-            start: 2000,
-            end: 2500,
-            fn(el, v) {
-              el.style.transform = `translateX(-200px) translateY(${
-                -200 * v
-              }px)`;
+            interval: [1500, 2500],
+            fn(v) {
+              return {
+                transform: `scale(${2 - 1 * v})`,
+                filter: `blur(${7.5 * v}px)`,
+                opacity: 1,
+              };
             },
           },
           {
-            start: 3000,
-            end: 3500,
-            fn(el, v) {
-              el.style.transform = `translateX(${
-                -200 + 400 * v
-              }px) translateY(-200px)`;
+            interval: [3000, 3500],
+            fn(v) {
+              return {
+                transform: `scale(1)`,
+                filter: `blur(7.5px)`,
+                opacity: 1 - v,
+              };
+            },
+          },
+        ],
+        v,
+      );
+      //#####··········书··········#####//
+      this.play(
+        this.$refs.b,
+        [
+          {
+            interval: [1500, 2500],
+            fn(v) {
+              return {
+                transform: `translateY(${50 - 50 * v}%) scale(${2 - 1 * v})`,
+                opacity: v,
+              };
             },
           },
           {
-            start: 4000,
-            end: 4500,
-            fn(el, v) {
-              el.style.transform = `translateX(200px) translateY(${
-                -200 + 200 * v
-              }px)`;
-            },
-          },
-          {
-            start: 5000,
-            end: 5500,
-            fn(el, v) {
-              el.style.transform = `translateX(${200 - 200 * v}px)`;
+            interval: [3000, 3500],
+            fn(v) {
+              return {
+                transform: "",
+                opacity: `${1 - v}`,
+              };
             },
           },
         ],
         v,
       );
     },
+
     play(el, phase, v) {
-      el.innerHTML = v + "px";
-      phase.forEach((item) => {
-        let progress = 0;
-        if (v >= item.start) {
-          progress = (v - item.start) / (item.end - item.start);
-          if (v > item.end) {
-            progress = 1;
+      phase.forEach((item, index) => {
+        /* 如果滚动坐标超过了当前区间，则不执行，节省性能 */
+        if (v <= item.interval[1] && v >= item.interval[0]) {
+          let progress = 0;
+          if (v >= item.interval[0]) {
+            progress =
+              (v - item.interval[0]) / (item.interval[1] - item.interval[0]);
+            Object.keys(item.fn(progress)).forEach((_item) => {
+              el.style[_item] = item.fn(progress)[_item];
+            });
           }
-          item.fn(el, progress);
+        } else if (v > item.interval[1]) {
+          Object.keys(item.fn(1)).forEach((_item) => {
+            el.style[_item] = item.fn(1)[_item];
+          });
+        } else if (item.interval[0] > v && index === 0) {
+          Object.keys(item.fn(0)).forEach((_item) => {
+            el.style[_item] = item.fn(0)[_item];
+          });
         }
       });
     },
@@ -97,9 +127,18 @@ export default {
 };
 </script>
 <style scoped lang="less">
+* {
+  transition: all 0.5s;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
 .demoFull {
+  position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background-color: #333;
+  background-color: #000;
   .LybScrollFollow {
     display: flex;
     flex-direction: column;
@@ -112,8 +151,8 @@ export default {
       height: 100vh;
     }
     .FollowBox {
-      width: 75%;
-      height: 6000px;
+      width: 100%;
+      height: calc(3500px + 100vh);
       background-color: #000;
       flex-shrink: 0;
       .sticky {
@@ -124,12 +163,22 @@ export default {
         top: 0;
         flex-shrink: 0;
         width: 100%;
-        height: 75vh;
+        height: 100vh;
         background-color: #222;
         .a {
           position: absolute;
-          color: #fff;
-          font-size: 100px;
+          width: 100%;
+          height: 100%;
+          background: url("./img/room.png") no-repeat center center;
+          background-size: cover;
+        }
+        .b {
+          position: absolute;
+          width: 100%;
+          height: 75%;
+          bottom: 0;
+          background: url("./img/book.png") no-repeat center center;
+          background-size: cover;
         }
       }
     }
