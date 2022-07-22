@@ -51,7 +51,7 @@ export default {
     setTimeout(() => {
       this.isShow = true; //图片请求完毕后显示组件
       this.file = {
-        url: 'http://lengyibai.gitee.io/img-bed/img/lyb.png',
+        url: 'https://lengyibai-img-bed.netlify.app/img/lyb.png',
         name: '冷弋白'
       };
     }, 1000);

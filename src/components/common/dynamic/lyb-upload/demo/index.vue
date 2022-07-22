@@ -49,21 +49,21 @@ export default {
   mounted() {
     /* 模拟异步请求图片 */
     setTimeout(() => {
-      this.single.fileUrl = "http://lengyibai.gitee.io/img-bed/img/lyb.png";
+      this.single.fileUrl = "https://lengyibai-img-bed.netlify.app/img/lyb.png";
       this.single.isShow = true;
 
       this.$set(this.multiple, "files", [
         {
           fileName: "图片1",
-          src: "http://lengyibai.gitee.io/img-bed/img/lyb.png",
+          src: "https://lengyibai-img-bed.netlify.app/img/lyb.png",
         },
         {
           fileName: "图片2",
-          src: "http://lengyibai.gitee.io/img-bed/img/lyb.png",
+          src: "https://lengyibai-img-bed.netlify.app/img/lyb.png",
         },
         {
           fileName: "图片3",
-          src: "http://lengyibai.gitee.io/img-bed/img/lyb.png",
+          src: "https://lengyibai-img-bed.netlify.app/img/lyb.png",
         },
       ]);
       this.multiple.isShow = true;

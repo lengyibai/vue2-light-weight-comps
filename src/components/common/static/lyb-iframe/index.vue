@@ -20,7 +20,7 @@ export default {
   props: {
     link: {
       type: String,
-      default: "http://lengyibai.gitee.io/vue-library/preview/08",
+      default: "https://lengyibai-vue2-function-library.netlify.app/dist/08",
     },
     show: {
       type: Boolean,

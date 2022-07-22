@@ -2,7 +2,7 @@
   <div class="demoFull">
     <a
       target="_blank"
-      href="http://lengyibai.gitee.io/scroll-animate"
+      href="https://lengyibai-scroll-animate.netlify.app"
       v-textHoverColor
       >点击这里去复制动画名填入下框</a
     >

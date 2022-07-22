@@ -3,7 +3,7 @@
     <div class="btn" @click="Switch">{{ show ? "关闭" : "打开" }}</div>
     <LybIframe
       class="LybIframe"
-      link="http://lengyibai.gitee.io/vue-library/preview/08"
+      link="https://lengyibai-vue2-function-library.netlify.app/dist/08"
       :show="show"
     />
   </div>

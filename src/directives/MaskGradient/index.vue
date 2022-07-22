@@ -8,7 +8,7 @@
         num2: '50%',
       }"
     >
-      <img src="http://lengyibai.gitee.io/img-bed/img/lyb.png" alt="" />
+      <img src="https://lengyibai-img-bed.netlify.app/img/lyb.png" alt="" />
       <span>这里是冷弋(yi)白</span>
     </div>
   </div>
